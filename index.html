@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Syem Aziz Introduction</title>
     <style>
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        #slideshow {
+            font-size: 24px;
+            color: yellow;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid yellow; /* Cursor */
+            animation: blink 0.7s step-end infinite;
         }
 
         @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-
-        .typing-effect {
-            font-family: 'Courier New', monospace;
-            font-size: 2rem;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid yellow;
-            width: 100%; /* Adjust based on your name */
-            animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
+            50% { border-color: transparent; }
         }
     </style>
 </head>
+<body>
 
-<body class="bg-black text-yellow-400 min-h-screen flex flex-col items-center justify-center">
-    <header class="text-center">
-        <h1 class="typing-effect">Hi, I'm Syem Aziz</h1>
-        <p class="mt-6 text-xl">Lecturer</p>
-        <p class="mt-6 text-lg">Bangladesh University of Business & Technology</p>
-        <a href="#projects" class="mt-10 inline-block px-6 py-2 text-black bg-yellow-400 rounded hover:bg-yellow-300">View Projects</a>
-    </header>
+    <h1>Hello, I'm Syem Aziz.</h1>
+    <div id="slideshow"></div>
+
+    <script>
+        const words = ["Developer", "Lecturer", "ML enthusiast"];
+        let wordIndex = 0;
+        let letterIndex = 0;
+        const typingSpeed = 100; // Speed of typing effect in milliseconds
+        const pauseDuration = 1000; // Duration to pause between words in milliseconds
+        const slideshowElement = document.getElementById("slideshow");
+
+        function typeWord() {
+            const currentWord = words[wordIndex];
+            if (letterIndex < currentWord.length) {
+                slideshowElement.textContent += currentWord[letterIndex];
+                letterIndex++;
+                setTimeout(typeWord, typingSpeed);
+            } else {
+                setTimeout(() => {
+                    eraseWord();
+                }, pauseDuration);
+            }
+        }
+
+        function eraseWord() {
+            if (letterIndex > 0) {
+                slideshowElement.textContent = slideshowElement.textContent.slice(0, -1);
+                letterIndex--;
+                setTimeout(eraseWord, typingSpeed);
+            } else {
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(typeWord, typingSpeed);
+            }
+        }
+
+        typeWord(); // Start typing the first word
+    </script>
+
 </body>
-
 </html>
