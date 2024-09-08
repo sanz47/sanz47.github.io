@@ -4,66 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syem Aziz Introduction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        #slideshow {
-            font-size: 24px;
-            color: yellow;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid yellow; /* Cursor */
-            animation: blink 0.7s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
     <h1>Hello, I'm Syem Aziz.</h1>
     <div id="slideshow"></div>
 
-    <script>
-        const words = ["Developer", "Lecturer", "ML enthusiast"];
-        let wordIndex = 0;
-        let letterIndex = 0;
-        const typingSpeed = 100; // Speed of typing effect in milliseconds
-        const pauseDuration = 1000; // Duration to pause between words in milliseconds
-        const slideshowElement = document.getElementById("slideshow");
-
-        function typeWord() {
-            const currentWord = words[wordIndex];
-            if (letterIndex < currentWord.length) {
-                slideshowElement.textContent += currentWord[letterIndex];
-                letterIndex++;
-                setTimeout(typeWord, typingSpeed);
-            } else {
-                setTimeout(() => {
-                    eraseWord();
-                }, pauseDuration);
-            }
-        }
-
-        function eraseWord() {
-            if (letterIndex > 0) {
-                slideshowElement.textContent = slideshowElement.textContent.slice(0, -1);
-                letterIndex--;
-                setTimeout(eraseWord, typingSpeed);
-            } else {
-                wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(typeWord, typingSpeed);
-            }
-        }
-
-        typeWord(); // Start typing the first word
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>

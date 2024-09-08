@@ -1,0 +1,30 @@
+body {
+    text-align: left;
+    margin-top: 300px;
+    margin-left: 30px;
+    font-size: xx-large;
+    background-color: #090910;
+    color: #FFF600;
+}
+
+#slideshow {
+    font: 'Verdana';
+    font-size: 40px;
+    color: #FFF600;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid yellow; /* Cursor */
+    display: inline; /* Ensure the cursor appears at the end of the text */
+    animation: blink 0.7s step-end infinite;
+    padding-right: 4px; /* Optional: Adds some space between the text and cursor */
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+h1 {
+    font-size: xx-large;
+    font: 2em 'Impact';
+    color: #FFF600;
+}
