@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .typing-effect {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid yellow;
+            width: 100%; /* Adjust based on your name */
+            animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+
+<body class="bg-black text-yellow-400 min-h-screen flex flex-col items-center justify-center">
+    <header class="text-center">
+        <h1 class="typing-effect">Hi, I'm [Your Name]</h1>
+        <p class="mt-6 text-lg">I'm a [Your Job Title]</p>
+        <a href="#projects" class="mt-10 inline-block px-6 py-2 text-black bg-yellow-400 rounded hover:bg-yellow-300">View Projects</a>
     </header>
-
-    <section id="hero">
-        <h1>Hi, I'm [Your Name]</h1>
-        <p>I'm a [Your Job Title]</p>
-        <a href="#projects" class="btn">View Projects</a>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>A short description about yourself.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project">
-                <img src="assets/project1.png" alt="Project 1">
-                <h3>Project 1</h3>
-                <p>Project description.</p>
-            </div>
-            <div class="project">
-                <img src="assets/project2.png" alt="Project 2">
-                <h3>Project 2</h3>
-                <p>Project description.</p>
-            </div>
-            <!-- Add more projects as needed -->
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile">yourprofile</a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 [Your Name]. All rights reserved.</p>
-    </footer>
 </body>
+
 </html>
