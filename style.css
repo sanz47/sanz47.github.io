@@ -5,10 +5,12 @@ body {
     font-size: xx-large;
     background-color: #090910;
     color: #FFF600;
+    font-family: 'SUSE', sans-serif;
 }
 
+
 #slideshow {
-    font: 'Verdana';
+    font-family: 'SUSE', sans-serif;
     font-size: 40px;
     color: #FFF600;
     white-space: nowrap;
@@ -24,7 +26,7 @@ body {
 }
 
 h1 {
-    font-size: xx-large;
-    font: 2em 'Impact';
+    font-size: 60px;
+    font-family: 'SUSE', sans-serif;
     color: #FFF600;
 }
