@@ -1,4 +1,4 @@
-const words = ["Developer", "Designer", "Teacher", "Learner"];
+const words = [" Developer", " Designer"];
 let wordIndex = 0;
 let letterIndex = 0;
 const typingSpeed = 100; // Speed of typing effect in milliseconds
