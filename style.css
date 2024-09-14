@@ -12,19 +12,17 @@ body {
     height: 100vh; /* Full viewport height */
     flex-direction: column;
     font-size: xx-large;
-    background-color: #090910;
-    color: #FFF600;
+    background: linear-gradient(to bottom right, #ffffff, #a2c8f3); /* Blue gradient and white */
+    color: #ffffff; /* Change text color to match the gradient */
     font-family: 'SUSE', sans-serif;
     margin-left: 30px;
 }
-
-
 
 /* Navbar Styles */
 .navbar {
     margin-top: 3px;
     margin-right: 15px;
-    background-color: #090910;
+    background-color: linear-gradient(to bottom right, #ffffff, #a2c8f3); /* White background for navbar */
     overflow: hidden;
     font-family: 'SUSE', sans-serif;
     position: absolute;
@@ -34,9 +32,10 @@ body {
 }
 
 .navbar a {
+ 
     float: left;
     display: block;
-    color: #FFF600;
+    color: #4a90e2; /* Blue text color for links */
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
@@ -46,14 +45,14 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #95f10c;
-    color: black;
+    background-color: #4a90e2; /* Blue background on hover */
+    color: white;
     cursor: pointer; /* Change the mouse pointer on hover */
 }
 
 /* Active link styling */
 .navbar a.active {
-    background-color: #04AA6D;
+    background-color: #4a90e2; /* Blue background for active link */
     color: white;
     border-radius: 13px; /* Rounded corners for active link */
 }
@@ -61,7 +60,7 @@ body {
 #slideshow {
     font-family: 'SUSE', sans-serif;
     font-size: 40px;
-    color: #FFF600;
+    color: #4a90e2; /* Blue text color */
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
@@ -76,7 +75,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: yellow; /* Cursor color */
+    background-color: #4a90e2; /* Cursor color */
     animation: blink 0.7s step-end infinite;
 }
 
@@ -87,7 +86,7 @@ body {
 h1 {
     font-size: 60px;
     font-family: 'SUSE', sans-serif;
-    color: #FFF600;
+    color: #4a90e2; /* Blue text for headings */
     margin-bottom: 20px;
     text-align: center;
 }
