@@ -1,5 +1,4 @@
 html, body {
-    overflow: hidden; /* Disable scrolling */
     height: 100%; /* Ensure full height */
     margin: 0; /* Remove default margin */
     padding: 0;
@@ -11,16 +10,13 @@ body {
 }
 body.fade-in {
     opacity: 1; /* Fade-in to fully visible */
-    display: flex;
-    justify-content: center; /* Horizontally center the body */
-    align-items: flex-start; /* Align content to the top */
-    height: 100vh; /* Full viewport height */
-    flex-direction: column;
-    font-size: xx-large;
+    overflow: hidden;
+    align-self: self-start;
+    font-size: 17pt;
     background: linear-gradient(to bottom right, #ffffff, #ffffff); /* Blue gradient and white */
     color: #ffffff; /* Change text color to match the gradient */
     font-family: 'SUSE', sans-serif;
-    margin-left: 30px;
+
 }
 
 /* Navbar Styles */
@@ -37,7 +33,6 @@ body.fade-in {
 }
 
 .navbar a {
- 
     float: left;
     display: block;
     color: black; /* Blue text color for links */
@@ -62,46 +57,22 @@ body.fade-in {
     border-radius: 13px; /* Rounded corners for active link */
 }
 
-#slideshow {
-    font-family: 'SUSE', sans-serif;
-    font-size: 40px;
-    color: #000; /* Blue text color */
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    position: relative;
-    height: 50px; /* Set height to prevent content resizing */
-}
-
-#slideshow::after {
-    content: ''; /* Empty content for the cursor */
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #000; /* Cursor color */
-    animation: blink 0.7s step-end infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
 h1 {
-    font-size: 60px;
+    margin-top: 70px;
+    font-size: 35px;
     font-family: 'SUSE', sans-serif;
     color: #000; /* Blue text for headings */
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 10px;
+    text-align: left;
 }
 .about-section {
-    text-align: center;
+    text-align: justify; /* Align text to the left */
     background-color: #ffffff; /* White background */
-    color: #000; /* Blue text color */
+    color: #000; /* Text color */
 }
 
 .container {
     font-family: 'SUSE', sans-serif;
-    margin-left: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
