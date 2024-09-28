@@ -10,7 +10,7 @@ body {
 }
 body.fade-in {
   opacity: 1; /* Fade-in to fully visible */
-  overflow: hidden;
+  overflow: auto;
   align-self: self-start;
   font-size: 17pt;
   background: linear-gradient(to bottom right, #ffffff, #ffffff); /* Blue gradient and white */
@@ -18,24 +18,39 @@ body.fade-in {
   font-family: 'SUSE', sans-serif;
 }
 
+
+.portfolio {
+  text-align: left;
+  padding-left: 40px;
+  font-size: 35px;
+  font-weight: 700;
+  position: inherit;
+  font-family: 'SUSE', sans-serif;
+  color: #000;
+}
+
 /* Navbar Styles */
 .navbar {
-  margin-top: 3px;
-  margin-right: 15px;
-  background-color: linear-gradient(to bottom right, #ffffff, #ffffff); /* White background for navbar */
+  margin-top: 0px;
+  margin-right: 0px;
+  background-color: white; /* White background for navbar */
+  padding: 4px; /* 10px padding around the navbar */
   overflow: hidden;
   font-family: 'SUSE', sans-serif;
-  position: absolute;
+  position: fixed; /* Fixed position to stay in place when scrolling */
   top: 0;
   right: 0;
-  width: auto; /* Adjust the width based on your links */
+  opacity: 0.99;
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it stays on top of other content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+  border-radius: 10px; /* Optional: Adds rounded corners to the navbar */
+  text-align: right; /* Aligns all text in the navbar to the right */
 }
 
 .navbar a {
-  float: left;
-  display: block;
-  color: black; /* Blue text color for links */
-  text-align: center;
+  display: inline-block;
+  color: black; /* Black text color for links */
   padding: 14px 20px;
   text-decoration: none;
   font-size: 17px;
@@ -44,17 +59,18 @@ body.fade-in {
 }
 
 .navbar a:hover {
-  background-color: black; /* Blue background on hover */
+  background-color: black; /* Black background on hover */
   color: white;
   cursor: pointer; /* Change the mouse pointer on hover */
 }
 
 /* Active link styling */
 .navbar a.active {
-  background-color: black; /* Blue background for active link */
+  background-color: black; /* Black background for active link */
   color: white;
   border-radius: 13px; /* Rounded corners for active link */
 }
+
 
 h1 {
   margin-top: 70px;
@@ -79,7 +95,7 @@ h1 {
 /* Projects Grid Styling */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
   gap: 20px;
 }
 
