@@ -1,48 +1,29 @@
-/* Ensure full height and remove default margins */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-  }
-  
-  body {
-    opacity: 0; /* Initially hidden */
-    transition: opacity 1.5s ease-in-out; /* Smooth transition for fade-in effect */
-  }
-  
-  /* The fade-in effect */
-  body.fade-in {
-    opacity: 1; /* Set opacity to fully visible */
-    background: linear-gradient(to bottom right, #ffffff, #ffffff); /* Background settings */
-    font-family: 'SUSE', sans-serif;
-    overflow: auto;
-    font-size: 24px;
-  }
-  
-  
-  /* About Section Styles */
-  h1 {
-    margin-top: 70px;
-    font-size: larger;
-    font-family: 'SUSE', sans-serif;
-    color: #000;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  
-  .about-section {
-    text-align: justify;
-    background-color: #ffffff;
-    color: #000;
-    font-family: 'SUSE', sans-serif;
-  }
-  
-  .container {
-    margin-left: 60px;
-    margin-right: 60px;
-  }
-  
+  overflow: hidden; /* Disable scrolling */
+  height: 100%; /* Ensure full height */
+  margin: 0; /* Remove default margin */
+  padding: 0;
+}
+
+body {
+  margin-top: 50px;
+  opacity: 0; /* Start page invisible */
+  transition: opacity 1s ease-in-out; /* Transition effect */
+}
+body.fade-in {
+  opacity: 1; /* Fade-in to fully visible */
+  display: flex;
+  justify-content: left; /* Horizontally center the body */
+  align-items: left; /* Align content to the top */
+  height: 100vh; /* Full viewport height */
+  flex-direction: column;
+  font-size: larger;
+  background: linear-gradient(to bottom right, #ffffff, #ffffff); /* Blue gradient and white */
+  color: #ffffff; /* Change text color to match the gradient */
+  font-family: 'SUSE', sans-serif;
+  margin-left: 20px;
+}
+
 
 
 .portfolio {
@@ -95,4 +76,33 @@ html, body {
   background-color: black; /* Black background for active link */
   color: white;
   border-radius: 13px; /* Rounded corners for active link */
+}
+
+
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+h1 {
+  font-size: 40px;
+  font-family: 'SUSE', sans-serif;
+  color: #000; /* Blue text for headings */
+  margin-bottom: 10px;
+  margin-left: 30px;
+  text-align: left;
+}
+.about-section {
+  text-align: justify;
+  background-color: #ffffff; /* White background */
+  color: #000; /* Blue text color */
+
+  margin-right: 20px;
+  padding-right: 20px;
+}
+
+.container {
+  font-family: 'SUSE', sans-serif;
+  margin-left: 30px;
+  font-size: 16pt;
 }

@@ -5,15 +5,20 @@ const typingSpeed = 100; // Speed of typing effect in milliseconds
 const pauseDuration = 1000; // Duration to pause between words in milliseconds
 const slideshowElement = document.getElementById("slideshow");
     // Apply fade-in when the page is loaded
-    window.addEventListener("load", () => {
-        document.body.classList.add("fade-in"); // Add the class to trigger the fade-in effect
-    });
+    
 
     // Add fade-out effect before leaving the page
     window.addEventListener("beforeunload", function() {
         document.body.style.opacity = 0;
     });
 
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     document.body.classList.add('fade-in');
+    // });
+
+    window.addEventListener("load", () => {
+        document.body.classList.add("fade-in"); // Add the class to trigger the fade-in effect
+    });
 
 
 function typeWord() {
