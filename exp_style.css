@@ -1,0 +1,77 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e;
+    color: #ddd;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .timeline {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #b084ff;
+    border-radius: 50%;
+    position: relative;
+    left: 50px;
+    top: 8px;
+  }
+  
+  .year-month {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .year {
+    font-size: 18px;
+    color: #b084ff;
+    font-weight: bold;
+  }
+  
+  .month {
+    font-size: 14px;
+    color: #b084ff;
+    margin-top: 4px;
+  }
+  
+  .content {
+    flex: 1;
+    padding-left: 20px;
+    border-left: 2px solid #b084ff;
+  }
+  
+  h3 {
+    margin: 0;
+  }
+  
+  h3 a {
+    color: #58a6ff;
+    text-decoration: none;
+  }
+  
+  h3 a:hover {
+    text-decoration: underline;
+  }
+  
+  p {
+    margin: 8px 0 0;
+  }
+  
+  .date, .read-time {
+    color: #999;
+    font-size: 14px;
+  }
