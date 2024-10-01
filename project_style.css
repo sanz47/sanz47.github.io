@@ -1,12 +1,13 @@
 html, body {
   height: 100%; /* Ensure full height */
-  margin: 0; /* Remove default margin */
-  padding: 0;
+  
+  padding-bottom: 40px;
 }
 
 body {
   opacity: 0; /* Start page invisible */
   transition: opacity 1s ease-in-out; /* Transition effect */
+  
 }
 body.fade-in {
   opacity: 1; /* Fade-in to fully visible */
@@ -90,6 +91,7 @@ h1 {
   font-family: 'SUSE', sans-serif;
   margin-left: 60px;
   margin-right: 60px;
+ 
 }
 
 /* Projects Grid Styling */
@@ -97,6 +99,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
   gap: 20px;
+  
 }
 
 .project-card {
