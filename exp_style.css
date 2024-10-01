@@ -1,96 +1,175 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
+/* exp_style.css */
+
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    opacity: 1; /* Fade-in to fully visible */
+    display: flex;
+    justify-content: center; /* Horizontally center the body */
+    align-items: flex-start; /* Align content to the top */
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+    font-size: xx-large;
+    background: linear-gradient(to bottom right, #ffffff, #ffffff); /* Blue gradient and white */
+    color: #ffffff; /* Change text color to match the gradient */
+    font-family: 'SUSE', sans-serif;
+    margin-left: 30px;
+    transition: background-color 0.8s ease, color 0.8s ease; /* Smooth background & text color transition */
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+    font-family: 'SUSE', sans-serif;
+    margin-left: 30px;
 }
 
 h1 {
+    text-align: center;
+    margin-bottom: 50px;
     font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    transition: color 0.5s ease; /* Smooth color transition */
 }
 
 .timeline {
     position: relative;
-    max-width: 900px;
-    margin: 0 auto;
     padding: 20px 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: #ddd;
-    z-index: 1;
+    border-left: 3px solid #000000;
+    transition: border-color 0.5s ease; /* Smooth border color transition */
 }
 
 .timeline-item {
-    display: flex;
-    justify-content: flex-end;
+    margin-bottom: 30px;
+    padding-left: 30px;
     position: relative;
-    padding: 20px 0;
-    width: 50%;
-    z-index: 2;
-}
-
-.timeline-item:nth-child(even) {
-    justify-content: flex-start;
 }
 
 .timeline-dot {
     width: 20px;
     height: 20px;
-    background-color: #4CAF50;
+    background-color: #000000;
     border-radius: 50%;
     position: absolute;
-    left: 50%;
-    top: 20px;
-    transform: translateX(-50%);
-    z-index: 3;
+    left: -13px;
+    top: 5px;
+    border: 3px solid #f4f4f9;
+    transition: background-color 0.5s ease, border-color 0.5s ease; /* Smooth dot transition */
 }
 
 .timeline-content {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 70%;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover and shadow transition */
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    background-color: #f9f9f9; /* Lighter background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
 
 .timeline-content h2 {
-    font-size: 20px;
-    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 10px;
+    transition: color 0.4s ease; /* Smooth color transition */
 }
 
 .timeline-content p {
     font-size: 16px;
-    color: #777;
+    margin-bottom: 10px;
+    color: #000000;
+    transition: color 0.4s ease; /* Smooth color transition */
 }
 
 .timeline-content span {
     font-size: 14px;
-    color: #aaa;
+    color: #000000;
+    transition: color 0.4s ease; /* Smooth color transition */
 }
 
-@media screen and (max-width: 768px) {
-    .timeline-item {
-        width: 100%;
+@media (max-width: 768px) {
+    .timeline {
         padding-left: 0;
+        border-left: none;
     }
 
-    .timeline-item:nth-child(even) {
-        justify-content: flex-end;
+    .timeline-item {
+        padding-left: 0;
+        text-align: center;
     }
+
+    .timeline-dot {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .timeline-content {
+        display: inline-block;
+        text-align: left;
+    }
+}
+
+.portfolio {
+    text-align: left;
+    padding-left: 40px;
+    font-size: 35px;
+    font-weight: 700;
+    position: inherit;
+    font-family: 'SUSE', sans-serif;
+    color: #000;
+    transition: color 0.5s ease; /* Smooth color transition */
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-top: 0px;
+    margin-right: 0px;
+    background-color: white; /* White background for navbar */
+    padding: 4px; /* 10px padding around the navbar */
+    overflow: hidden;
+    font-family: 'SUSE', sans-serif;
+    position: fixed; /* Fixed position to stay in place when scrolling */
+    top: 0;
+    right: 0;
+    opacity: 0.99;
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+    border-radius: 10px; /* Optional: Adds rounded corners to the navbar */
+    text-align: right; /* Aligns all text in the navbar to the right */
+    transition: background-color 0.6s ease, box-shadow 0.6s ease; /* Smooth navbar background & shadow transition */
+}
+
+.navbar a {
+    display: inline-block;
+    color: black; /* Black text color for links */
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.7s ease, color 0.5s ease; /* Smooth background & text color transition */
+    border-radius: 13px; /* Rounded corners */
+}
+
+.navbar a:hover {
+    background-color: black; /* Black background on hover */
+    color: white;
+    cursor: pointer; /* Change the mouse pointer on hover */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition on hover */
+}
+
+/* Active link styling */
+.navbar a.active {
+    background-color: black; /* Black background for active link */
+    color: white;
+    border-radius: 13px; /* Rounded corners for active link */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition on active state */
 }
