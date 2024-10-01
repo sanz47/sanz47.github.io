@@ -1,27 +1,24 @@
 html, body {
-  overflow: hidden; /* Disable scrolling */
   height: 100%; /* Ensure full height */
-  margin: 0; /* Remove default margin */
+  margin: 30px 10px 20px 10px; /* Remove default margin */
   padding: 0;
 }
 
 body {
+  overflow: scroll;
   margin-top: 50px;
+
   opacity: 0; /* Start page invisible */
   transition: opacity 1s ease-in-out; /* Transition effect */
 }
 body.fade-in {
   opacity: 1; /* Fade-in to fully visible */
-  display: flex;
-  justify-content: left; /* Horizontally center the body */
-  align-items: left; /* Align content to the top */
-  height: 100vh; /* Full viewport height */
-  flex-direction: column;
-  font-size: larger;
+  overflow: auto;
+  align-self: self-start;
+  font-size: 17pt;
   background: linear-gradient(to bottom right, #ffffff, #ffffff); /* Blue gradient and white */
   color: #ffffff; /* Change text color to match the gradient */
   font-family: 'SUSE', sans-serif;
-  margin-left: 20px;
 }
 
 
