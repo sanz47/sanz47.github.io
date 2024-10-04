@@ -1,26 +1,3 @@
-/* exp_style.css */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    opacity: 1; /* Fade-in to fully visible */
-    display: flex;
-    justify-content: center; /* Horizontally center the body */
-    align-items: center; /* Align content to the top */
-    height: 100vh; /* Full viewport height */
-    flex-direction: column;
-    font-size: xx-large;
-    background: linear-gradient(to bottom right, #ffffff, #ffffff); /* Blue gradient and white */
-    color: #ffffff; /* Change text color to match the gradient */
-    font-family: 'SUSE', sans-serif;
-    margin-left: 30px;
-    transition: background-color 0.8s ease, color 0.8s ease; /* Smooth background & text color transition */
-}
-
 .container {
     font-family: 'SUSE', sans-serif;
     margin-left: 30px;
@@ -37,15 +14,19 @@ h1 {
 }
 
 .timeline {
+    font-family: 'SUSE', sans-serif;
     position: relative;
-    padding: 20px 0;
+    margin-left: 40px;
+    margin-right: 60px;
     border-left: 3px solid #000000;
     transition: border-color 0.5s ease; /* Smooth border color transition */
 }
 
 .timeline-item {
+    font-family: 'SUSE', sans-serif;
     margin-bottom: 30px;
     padding-left: 30px;
+    margin-right: 20px;
     position: relative;
 }
 
@@ -55,31 +36,36 @@ h1 {
     background-color: #000000;
     border-radius: 50%;
     position: absolute;
-    left: -13px;
-    top: 5px;
+    left: -14.5px;
+    top: 10px;
     border: 3px solid #f4f4f9;
     transition: background-color 0.5s ease, border-color 0.5s ease; /* Smooth dot transition */
 }
 
 .timeline-content {
+    font-family: 'SUSE', sans-serif;
     background-color: white;
-    padding: 15px 20px;
+    padding-left: 10px;
     border-radius: 10px;
+    padding-top: 2px; /* Reduced padding-top */
+    padding-bottom: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover and shadow transition */
 }
 
 .timeline-content:hover {
+    font-family: 'SUSE', sans-serif;
     transform: translateY(-5px);
     background-color: #f9f9f9; /* Lighter background on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
 
 .timeline-content h2 {
+    font-family: 'SUSE', sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: #000000;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     transition: color 0.4s ease; /* Smooth color transition */
 }
 
@@ -91,7 +77,7 @@ h1 {
 }
 
 .timeline-content span {
-    font-size: 14px;
+    font-size: 18px;
     color: #000000;
     transition: color 0.4s ease; /* Smooth color transition */
 }
@@ -118,6 +104,31 @@ h1 {
     }
 }
 
+html, body {
+    overflow: hidden; /* Disable scrolling */
+    height: 100%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+    padding: 0;
+}
+
+body {
+    opacity: 0; /* Start page invisible */
+    transition: opacity 1s ease-in-out; /* Transition effect */
+}
+body.fade-in {
+    opacity: 1; /* Fade-in to fully visible */
+    display: flex;
+    justify-content: center; /* Horizontally center the body */
+    align-items: flex-start; /* Align content to the top */
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+    font-size: xx-large;
+    background: linear-gradient(to bottom right, #ecdbdb, #ffffff); /* Blue gradient and white */
+    color: #ffffff; /* Change text color to match the gradient */
+    font-family: 'SUSE', sans-serif;
+    margin-left: 30px;
+}
+
 .portfolio {
     text-align: left;
     padding-left: 40px;
@@ -126,11 +137,10 @@ h1 {
     position: inherit;
     font-family: 'SUSE', sans-serif;
     color: #000;
-    transition: color 0.5s ease; /* Smooth color transition */
-}
-
-/* Navbar Styles */
-.navbar {
+  }
+  
+  /* Navbar Styles */
+  .navbar {
     margin-top: 0px;
     margin-right: 0px;
     background-color: white; /* White background for navbar */
@@ -146,30 +156,61 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
     border-radius: 10px; /* Optional: Adds rounded corners to the navbar */
     text-align: right; /* Aligns all text in the navbar to the right */
-    transition: background-color 0.6s ease, box-shadow 0.6s ease; /* Smooth navbar background & shadow transition */
-}
-
-.navbar a {
+  }
+  
+  .navbar a {
     display: inline-block;
     color: black; /* Black text color for links */
     padding: 14px 20px;
     text-decoration: none;
     font-size: 17px;
-    transition: background-color 0.7s ease, color 0.5s ease; /* Smooth background & text color transition */
+    transition: background-color 0.7s ease, color 0.5s ease; /* Smooth transition */
     border-radius: 13px; /* Rounded corners */
-}
-
-.navbar a:hover {
+  }
+  
+  .navbar a:hover {
     background-color: black; /* Black background on hover */
     color: white;
     cursor: pointer; /* Change the mouse pointer on hover */
-    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition on hover */
-}
-
-/* Active link styling */
-.navbar a.active {
+  }
+  
+  /* Active link styling */
+  .navbar a.active {
     background-color: black; /* Black background for active link */
     color: white;
     border-radius: 13px; /* Rounded corners for active link */
-    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition on active state */
+  }
+  
+  .timeline-item {
+    margin-bottom: 20px; /* Adjust bottom margin if needed */
+    padding-left: 30px;
+    margin-right: 20px;
+    position: relative;
+    margin-top: 10px; /* Reduce the space above the timeline item */
+}
+
+.timeline-content {
+    font-family: 'SUSE', sans-serif;
+    background-color: white;
+    padding-left: 10px;
+    border-radius: 10px;
+    margin-top: 10px; /* Set top padding to 0 */
+    padding-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover and shadow transition */
+}
+
+.timeline-content:hover {
+    font-family: 'SUSE', sans-serif;
+    transform: translateY(-5px);
+    background-color: #f9f9f9; /* Lighter background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.timeline-dot {
+    top: 5px; /* Move the dot slightly up to close the gap */
+}
+
+h1 {
+    margin-bottom: 30px; /* Reduce the bottom margin */
 }
