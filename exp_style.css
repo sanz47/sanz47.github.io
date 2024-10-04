@@ -10,7 +10,7 @@ body {
     opacity: 1; /* Fade-in to fully visible */
     display: flex;
     justify-content: center; /* Horizontally center the body */
-    align-items: flex-start; /* Align content to the top */
+    align-items: center; /* Align content to the top */
     height: 100vh; /* Full viewport height */
     flex-direction: column;
     font-size: xx-large;
@@ -114,7 +114,7 @@ h1 {
 
     .timeline-content {
         display: inline-block;
-        text-align: left;
+        text-align: center;
     }
 }
 
