@@ -8,4 +8,4 @@ const nextConfig = {
     assetPrefix: '.',
   };
   
-  export default nextConfig;
+export default nextConfig;
