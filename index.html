@@ -9,7 +9,29 @@
   <script>
     window.addEventListener('load', () => {
       document.body.classList.remove('opacity-0', 'translate-y-2');
+      typeWriterEffect();
     });
+
+    function typeWriterEffect() {
+      const paragraphs = document.querySelectorAll('.typewriter');
+      paragraphs.forEach((para, idx) => {
+        let text = para.getAttribute('data-text');
+        let delay = idx * 1500;  // Delay the start for each paragraph
+        setTimeout(() => {
+          let i = 0;
+          let interval = setInterval(() => {
+            if (i < text.length) {
+              para.textContent += text.charAt(i);
+              i++;
+            } else {
+              clearInterval(interval);
+              // Remove blinking caret after typing ends
+              para.classList.remove('blinking');
+            }
+          }, 30);  // Typing speed
+        }, delay);
+      });
+    }
   </script>
 </head>
 <body class="bg-slate-100 font-sans opacity-0 translate-y-2 transition-all duration-1000 ease-in-out">
@@ -28,18 +50,14 @@
     <img src="sanz47.jpeg" alt="Syem Aziz" class="rounded-full h-100 w-100 shadow-lg">
   </div>
 
-  <!-- Right Section (About Me Card) -->
-  <div class="w-2/3 bg-white shadow-lg rounded-lg pt-4 pl-4 pr-4 pb-6 ml-10">
-    <h2 class="text-2xl font-bold text-blue-900">About Me</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed">
-      Hi, I'm Syem Aziz, a passionate Computer Science & Engineering graduate with a keen interest in technology, machine learning, and innovation. I enjoy exploring new technologies, developing machine learning models, and working on various projects that challenge my skills. I also have a strong passion for teaching and sharing knowledge with others.
-    </p>
-    <p class="mt-4 text-gray-700 leading-relaxed">
-      Outside of work, I love playing sports like Lawn Tennis and Table Tennis, as well as exploring creative pursuits like photography and 3D art design.
-    </p>
+     <!-- Right Section (About Me Card) -->
+     <div class="w-2/3 bg-white shadow-lg rounded-lg p-6 ml-10">
+      <h2 class="text-2xl font-bold text-blue-900">About Me</h2>
+      
+      <!-- Typewriter Effect Paragraphs -->
+      <p class="mt-4 text-xl text-gray-700 leading-relaxed typewriter blinking" data-text="Hi, I'm Syem Aziz, a passionate Computer Science & Engineering graduate with a keen interest in technology, machine learning, and innovation. I enjoy exploring new technologies, developing machine learning models, and working on various projects that challenge my skills. I also have a strong passion for teaching and sharing knowledge with others."></p>
+    </div>
   </div>
-</div>
-
 
 
 </body>
