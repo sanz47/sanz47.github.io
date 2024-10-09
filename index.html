@@ -3,60 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vibur:400" rel="stylesheet" type="text/css">
+    <title>Syem Aziz | Portfolio</title>
     <link href="./output.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+
     <style>
-        @layer utilities {
-            .neon-text {
-                color: #fff;
-                text-shadow: 
-                    0 0 7px #fff,
-                    0 0 10px #fff,
-                    0 0 21px #fff,
-                    0 0 42px #f09,
-                    0 0 82px #f09,
-                    0 0 92px #f09,
-                    0 0 102px #f09,
-                    0 0 151px #f09;
-            }
-            .pulsate {
-                animation: pulsate 0.11s ease-in-out infinite alternate;
-            }
-            @keyframes pulsate {
-                0% {
-                    text-shadow: 
-                        0 0 4px #fff,
-                        0 0 10px #fff,
-                        0 0 18px #fff,
-                        0 0 38px #f09,
-                        0 0 73px #f09,
-                        0 0 80px #f09,
-                        0 0 94px #f09,
-                        0 0 140px #f09;
-                }
-                100% {
-                    text-shadow: 
-                        0 0 4px #fff,
-                        0 0 11px #fff,
-                        0 0 19px #fff,
-                        0 0 40px #f09,
-                        0 0 80px #f09,
-                        0 0 90px #f09,
-                        0 0 100px #f09,
-                        0 0 150px #f09;
-                }
+        /* Add this CSS for the blinking cursor effect */
+        @keyframes blink {
+            50% {
+                opacity: 0; /* Cursor disappears at 50% */
             }
         }
+
+        .animate-blink {
+            animation: blink 0.7s step-end infinite;
+        }
     </style>
-    <title>Syem Aziz | Portfolio</title>
 </head>
-<body class="bg-[#010a01] text-[18px] font-[Vibur]">
-    <div class="container text-center h-14 w-full rounded-b-md shadow-md flex items-center">
-        <h1 class="neon-text text-[6.2rem] pulsate text-left pl-10 font-bold mt-40">
-            Syem Aziz
-        </h1>
+<body class="opacity-0 transition-opacity duration-1000 flex flex-col items-start justify-center h-screen font-suse bg-gradient-to-br from-white to-white text-black pl-10">
+
+    <nav class="fixed top-0 right-0 w-full bg-white p-4 shadow-lg rounded-lg z-50 text-right">
+        <div class="flex justify-between items-center">
+            <section class="ml-4 text-4xl font-bold cursor-pointer" onclick="window.location.href='./index.html';">Syem Aziz</section>
+            <div>
+                <a href="./about.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Home</a>
+                <a href="./experience.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Experience</a>
+
+                <a href="./project.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Projects</a>
+                <a href="#contact" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <h1 class="text-6xl text-black mb-5 text-center">Hi, I'm Syem Aziz!</h1>
+    <div id="slideshow" class="text-black text-4xl whitespace-nowrap overflow-hidden inline-block relative h-12">
+        <span id="typing-text"></span>
+        <span id="cursor" class="absolute right-0 w-1 h-8 pt-10 bg-black animate-blink"></span>
     </div>
+
+    <script>
+        const words = ["Developer ", "Teacher ", "Designer "];
+        let wordIndex = 0;
+        let letterIndex = 0;
+        const typingSpeed = 100; // Speed of typing effect in milliseconds
+        const pauseDuration = 1000; // Duration to pause between words in milliseconds
+        const typingTextElement = document.getElementById("typing-text");
+        const cursorElement = document.getElementById("cursor");
+
+        // Add fade-in effect when the page loads
+        window.addEventListener("load", () => {
+            document.body.classList.remove("opacity-0"); // Removes the opacity class for the fade-in effect
+        });
+
+        // Add fade-out effect before leaving the page
+        window.addEventListener("beforeunload", () => {
+            document.body.style.opacity = 0;
+        });
+
+        function typeWord() {
+            const currentWord = words[wordIndex];
+            if (letterIndex < currentWord.length) {
+                typingTextElement.textContent += currentWord[letterIndex];
+                letterIndex++;
+                setTimeout(typeWord, typingSpeed);
+            } else {
+                setTimeout(eraseWord, pauseDuration);
+            }
+        }
+
+        function eraseWord() {
+            if (letterIndex > 0) {
+                typingTextElement.textContent = typingTextElement.textContent.slice(0, -1);
+                letterIndex--;
+                setTimeout(eraseWord, typingSpeed);
+            } else {
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(typeWord, typingSpeed);
+            }
+        }
+
+        typeWord(); // Start typing the first word
+    </script>
 
 </body>
 </html>
