@@ -1,64 +1,62 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Vibur:400" rel="stylesheet" type="text/css">
+    <link href="./output.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <title>Syem Aziz | Home</title>
-  <script>
-    window.addEventListener('load', () => {
-      document.body.classList.remove('opacity-0', 'translate-y-2');
-      typeWriterEffect();
-    });
-
-    function typeWriterEffect() {
-      const paragraphs = document.querySelectorAll('.typewriter');
-      paragraphs.forEach((para, idx) => {
-        let text = para.getAttribute('data-text');
-        let delay = idx * 1500;  // Delay the start for each paragraph
-        setTimeout(() => {
-          let i = 0;
-          let interval = setInterval(() => {
-            if (i < text.length) {
-              para.textContent += text.charAt(i);
-              i++;
-            } else {
-              clearInterval(interval);
-              // Remove blinking caret after typing ends
-              para.classList.remove('blinking');
+    <style>
+        @layer utilities {
+            .neon-text {
+                color: #fff;
+                text-shadow: 
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px #f09,
+                    0 0 82px #f09,
+                    0 0 92px #f09,
+                    0 0 102px #f09,
+                    0 0 151px #f09;
             }
-          }, 10);  // Typing speed
-        }, delay);
-      });
-    }
-  </script>
+            .pulsate {
+                animation: pulsate 0.11s ease-in-out infinite alternate;
+            }
+            @keyframes pulsate {
+                0% {
+                    text-shadow: 
+                        0 0 4px #fff,
+                        0 0 10px #fff,
+                        0 0 18px #fff,
+                        0 0 38px #f09,
+                        0 0 73px #f09,
+                        0 0 80px #f09,
+                        0 0 94px #f09,
+                        0 0 140px #f09;
+                }
+                100% {
+                    text-shadow: 
+                        0 0 4px #fff,
+                        0 0 11px #fff,
+                        0 0 19px #fff,
+                        0 0 40px #f09,
+                        0 0 80px #f09,
+                        0 0 90px #f09,
+                        0 0 100px #f09,
+                        0 0 150px #f09;
+                }
+            }
+        }
+    </style>
+    <title>Syem Aziz | Portfolio</title>
 </head>
-<body class="bg-slate-100 opacity-0 translate-y-2 transition-all duration-1000 ease-in-out font-suse">
-<div class="bg-cyan-300 h-14 w-full rounded-b-md shadow-md flex items-center bg-opacity-50">
-<a href="#" class="text-left pl-10 font-bold text-3xl text-blue-900 text-opacity-100">Syem Aziz</a>
-<a href="#" class="ml-auto pr-7 text-left text-md text-blue-900 hover:text-white transition duration-300 text-opacity-100">Home</a>
-<a href="#" class="pr-7 text-left text-md text-blue-900 hover:text-white transition duration-300">Experiences</a>
-<a href="#" class="pr-7 text-left text-md text-blue-900 hover:text-white transition duration-300">Projects</a>
-<a href="#" class="pr-10 text-left text-md text-blue-900 hover:text-white transition duration-300">Achievements</a></div>
-
-
-<!-- Main Content -->
-<div class="flex justify-center items-start mt-10 px-5">
-  <!-- Left Section (Circular Photo) -->
-  <div class="w-1/4 flex justify-center">
-    <img src="sanz47.jpeg" alt="Syem Aziz" class="rounded-full w-100 shadow-lg">
-  </div>
-
-     <!-- Right Section (About Me Card) -->
-     <div class="w-2/3 bg-white shadow-lg rounded-lg p-6 h-100 mt-3 ml-10">
-      <h2 class="text-3xl font-bold text-blue-900 font-suse">About Me</h2>
-      
-      <!-- Typewriter Effect Paragraphs -->
-      <p class="mt-2 text-xl text-gray-700 leading-relaxed font-suse pr-3 text-justify ease-in-out italic">I am a graduate in Computer Science and Engineering, with a profound interest in technology, machine learning, and innovation. I thrive on exploring emerging technologies and undertaking projects that challenge and enhance my skill set. My passion for teaching and knowledge-sharing is complemented by a strong desire to contribute to research in the field of computer science. Furthermore, I have a deep enthusiasm for programming and web development. In my spare time, I engage in reading and immerse myself in creating 3D designs using Blender, as well as working on illustrations.</p>
+<body class="bg-[#010a01] text-[18px] font-[Vibur]">
+    <div class="container text-center h-14 w-full rounded-b-md shadow-md flex items-center">
+        <h1 class="neon-text text-[6.2rem] pulsate text-left pl-10 font-bold mt-40">
+            Syem Aziz
+        </h1>
     </div>
-  </div>
-
 
 </body>
 </html>
