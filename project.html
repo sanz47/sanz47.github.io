@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syem Aziz | Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+        /* Simplified hover effect */
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Subtle icon animation */
+        .tech-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: scale(1.1);
+        }
+        <style>
+        /* Simplified hover effect */
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            top: 50px;
+            border-radius: 8px;
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+    </style>
+</head>
+
+<body class="opacity-0 transition-opacity duration-1000 flex flex-col items-center justify-center font-suse bg-gray-50 text-black px-10">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 right-0 w-full bg-white p-4 shadow-lg rounded-lg z-50 text-right">
+        <div class="flex justify-between items-center">
+            <section class="ml-4 text-4xl font-bold cursor-pointer" onclick="window.location.href='./index.html';">Syem Aziz</section>
+            <div>
+                <a href="./index.html" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Home</a>
+                <a href="./experience.html" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Experience</a>
+                <a href="./project.html" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section with Simple Enhancements -->
+    <section class="w-full h-full mt-32 mb-24">
+        <h1 class="text-4xl text-gray-800 font-bold mb-12 text-center">My Projects</h1>
+        
+        <!-- Simple Grid Layout for Projects -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto ">
+
+            <!-- Project Card 1 with subtle hover effect -->
+            <div class="project-card bg-white shadow-md rounded-lg p-6 hover:scale-150">
+                <img src="https://via.placeholder.com/500x300" alt="AI-Powered Project" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-2xl font-bold mb-2">Ethical Story Classification</h2>
+                <p class="text-gray-500 mb-4">2024</p>
+                <p class="leading-tight text-gray-700">Classify ethical story</p>
+                <div class="mt-4">
+                    <img src="https://via.placeholder.com/30" alt="AI Icon" class="w-8 h-8 inline-block tech-icon">
+                </div>
+            </div>
+
+            <!-- Project Card 2 with subtle hover effect -->
+            <div class="project-card bg-white shadow-md rounded-lg p-6">
+                <img src="https://via.placeholder.com/500x300" alt="E-commerce Project" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-2xl font-bold mb-2">Speech Emotion Recognition</h2>
+                <p class="text-gray-500 mb-4">2023</p>
+                <p class="leading-tight text-gray-700">Speech emotion recognition in Bengali</p>
+                <div class="mt-4">
+                    <img src="https://via.placeholder.com/30" alt="Web Icon" class="w-8 h-8 inline-block tech-icon">
+                </div>
+            </div>
+
+            <!-- Project Card 3 with subtle hover effect -->
+            <div class="project-card bg-white shadow-md rounded-lg p-6">
+                <img src="https://via.placeholder.com/500x300" alt="3D Portfolio Project" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 class="text-2xl font-bold mb-2">NimBus</h2>
+                <p class="text-gray-500 mb-4">2020</p>
+                <p class="leading-tight text-gray-700">A game of Nim built in C++</p>
+                <div class="mt-4">
+                    <img src="https://via.placeholder.com/30" alt="3D Icon" class="w-8 h-8 inline-block tech-icon">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // Fade-in effect when the page loads
+        window.addEventListener("load", () => {
+            document.body.classList.remove("opacity-0");
+        });
+
+        // Fade-out effect before leaving the page
+        window.addEventListener("beforeunload", () => {
+            document.body.style.opacity = 0;
+        });
+    </script>
+
+</body>
+
+</html>
