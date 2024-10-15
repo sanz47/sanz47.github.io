@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,29 @@
     <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
 
     <style>
-        /* Add this CSS for the blinking cursor effect */
+        /* Blinking cursor effect */
         @keyframes blink {
             50% {
-                opacity: 0; /* Cursor disappears at 50% */
+                opacity: 0;
             }
         }
 
         .animate-blink {
             animation: blink 0.7s step-end infinite;
         }
+
+        /* Social Icons Styling */
+        .social-icons a {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: #000;
+        }
     </style>
 </head>
+
 <body class="opacity-0 transition-opacity duration-1000 flex flex-col items-start justify-center h-screen font-suse bg-gradient-to-br from-white to-white text-black pl-10">
 
     <nav class="fixed top-0 right-0 w-full bg-white p-4 shadow-lg rounded-lg z-50 text-right">
@@ -29,7 +41,6 @@
             <div>
                 <a href="./about.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Home</a>
                 <a href="./experience.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Experience</a>
-
                 <a href="./project.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Projects</a>
                 <a href="#contact" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Contact</a>
             </div>
@@ -38,30 +49,42 @@
 
     <h1 class="text-6xl text-black mb-5 text-center">Hi, I'm Syem Aziz!</h1>
 
-<div class="flex justify-center items-center">
-    <div class="mr-5">
-        <div id="slideshow" class="text-black text-4xl whitespace-nowrap overflow-hidden inline-block relative h-12">
-            <span id="typing-text"></span>
-            <span id="cursor" class="absolute right-0 w-1 h-8 pt-10 bg-black animate-blink"></span>
+    <div class="flex justify-center items-center">
+        <div class="mr-5">
+            <div id="slideshow" class="text-black text-4xl whitespace-nowrap overflow-hidden inline-block relative h-12">
+                <span id="typing-text"></span>
+                <span id="cursor" class="absolute right-0 w-1 h-8 pt-10 bg-black animate-blink"></span>
+            </div>
         </div>
     </div>
-</div>
+
+    <!-- Social Icons -->
+    <div class="fixed top-1/2 right-8 transform -translate-y-1/2 social-icons">
+        <a href="https://www.linkedin.com/in/syemaziz" target="_blank" class="block mb-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="w-8 h-8">
+        </a>
+        <a href="https://www.behance.net/syemaziz" target="_blank" class="block mb-4">
+            <img src="behance.png" alt="Behance" class="w-8 h-8">
+        </a>
+        <a href="https://github.com/sanz47" target="_blank" class="block mb-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub" class="w-8 h-8">
+        </a>
+    </div>
 
     <script>
         const words = ["Developer ", "Teacher ", "Designer "];
         let wordIndex = 0;
         let letterIndex = 0;
-        const typingSpeed = 100; // Speed of typing effect in milliseconds
-        const pauseDuration = 1000; // Duration to pause between words in milliseconds
+        const typingSpeed = 100;
+        const pauseDuration = 1000;
         const typingTextElement = document.getElementById("typing-text");
-        const cursorElement = document.getElementById("cursor");
 
-        // Add fade-in effect when the page loads
+        // Fade-in effect when the page loads
         window.addEventListener("load", () => {
-            document.body.classList.remove("opacity-0"); // Removes the opacity class for the fade-in effect
+            document.body.classList.remove("opacity-0");
         });
 
-        // Add fade-out effect before leaving the page
+        // Fade-out effect before leaving the page
         window.addEventListener("beforeunload", () => {
             document.body.style.opacity = 0;
         });
@@ -92,4 +115,5 @@
     </script>
 
 </body>
+
 </html>
