@@ -1,7 +1,11 @@
 // Toggle extra info in About Me section
+
 const toggleInfoBtn = document.getElementById('toggleInfoBtn');
 const extraInfo = document.getElementById('extraInfo');
-
+window.onload = function() {
+    // Force the page to reload from the server each time it is loaded
+    location.reload(true);
+};
 toggleInfoBtn.addEventListener('click', () => {
     extraInfo.classList.toggle('hidden');
     toggleInfoBtn.textContent = extraInfo.classList.contains('hidden') ? 'More Info' : 'Less Info';
