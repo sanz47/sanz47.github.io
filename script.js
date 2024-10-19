@@ -1,4 +1,8 @@
 // Toggle extra info in About Me section
+window.onload = function() {
+    // Force the page to reload from the server each time it is loaded
+    location.reload(true);
+};
 
 const toggleInfoBtn = document.getElementById('toggleInfoBtn');
 const extraInfo = document.getElementById('extraInfo');
