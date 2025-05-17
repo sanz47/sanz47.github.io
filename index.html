@@ -6,96 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syem Aziz | Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ff 100%);
+        :root {
+            --primary-gradient: linear-gradient(135deg, #64B5F6, #9575CD, #F06292);
+            --subtle-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
         
-        /* Subtle background animation */
-        .bg-animation {
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Modern elegant background */
+        .bg-shapes {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.4;
+            overflow: hidden;
         }
         
-        .bg-animation span {
+        .shape {
             position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #6b95ff, #a579ff);
-            animation: float 12s infinite ease-in-out;
+            opacity: 0.3;
+            filter: blur(60px);
+            border-radius: 100%;
         }
         
-        .bg-animation span:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
+        .shape-1 {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            right: -100px;
+            background: #64B5F6;
         }
         
-        .bg-animation span:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 70%;
-            left: 80%;
-            animation-delay: 3s;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        .shape-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -150px;
+            left: -100px;
+            background: #9575CD;
         }
         
-        .bg-animation span:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 50%;
-            left: 50%;
-            animation-delay: 6s;
-            background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+        .shape-3 {
+            width: 300px;
+            height: 300px;
+            top: 40%;
+            right: 25%;
+            background: #F06292;
         }
         
-        .bg-animation span:nth-child(4) {
-            width: 120px;
-            height: 120px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 9s;
-            background: linear-gradient(45deg, #84fab0, #8fd3f4);
+        /* Apple-style button */
+        .apple-button {
+            background-color: #000;
+            color: #fff;
+            border-radius: 980px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            transition: all 0.3s ease;
         }
         
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.7;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(0) rotate(360deg);
-                opacity: 0.7;
-            }
+        .apple-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
         
-        /* Blinking cursor effect */
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
+        .apple-button-outline {
+            background-color: transparent;
+            color: #000;
+            border: 1px solid #000;
+            border-radius: 980px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            transition: all 0.3s ease;
         }
-
-        .animate-blink {
-            animation: blink 0.7s step-end infinite;
+        
+        .apple-button-outline:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            transform: scale(1.02);
         }
-
-        /* Navigation hover effects */
+        
+        /* Card styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Nav styling */
         .nav-link {
             position: relative;
+            font-weight: 500;
             transition: all 0.3s ease;
         }
         
@@ -104,48 +121,47 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: 0;
-            left: 50%;
-            background: linear-gradient(45deg, #6b95ff, #a579ff);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            bottom: -2px;
+            left: 0;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
         }
         
         .nav-link:hover::after {
-            width: 80%;
+            width: 100%;
         }
         
-        /* Card styling */
-        .card {
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.8);
+        /* Social icon styling */
+        .social-container {
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 16px;
+            padding: 8px;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 32px rgba(31, 38, 135, 0.2);
-        }
-        
-        /* Social Icons Styling */
         .social-icon {
-            transition: all 0.3s ease;
-            filter: grayscale(100%);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             opacity: 0.7;
         }
         
         .social-icon:hover {
-            transform: translateY(-5px) rotate(10deg);
-            filter: grayscale(0%);
+            transform: translateY(-6px) scale(1.1);
             opacity: 1;
         }
         
-        /* Page transition */
+        /* Gradient text */
+        .gradient-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        /* Smooth page transition */
         .page-transition {
             opacity: 0;
-            animation: fadeIn 1s forwards;
+            animation: fadeIn 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
         }
         
         @keyframes fadeIn {
@@ -154,147 +170,185 @@
             }
         }
         
-        /* Typing effect */
-        .typing-container {
-            position: relative;
-            padding-right: 3px;
+        /* Cursor animation */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         
-        .gradient-text {
-            background: linear-gradient(to right, #6b95ff, #a579ff, #ff9a9e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: #000;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+            vertical-align: text-bottom;
+        }
+        
+        /* Section spacing */
+        .section {
+            margin-bottom: 120px;
+            padding: 0 20px;
+        }
+        
+        /* Apple-style typography */
+        .display-text {
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+        
+        .subtitle-text {
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: #6e6e73;
         }
     </style>
 </head>
 
-<body class="page-transition min-h-screen flex flex-col">
-    <!-- Background animation -->
-    <div class="bg-animation">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+<body class="page-transition">
+    <!-- Background shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
     </div>
 
-    <nav class="sticky top-0 bg-white bg-opacity-80 backdrop-filter backdrop-blur-md shadow-sm p-4 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="./index.html" class="text-3xl font-bold gradient-text">Syem Aziz</a>
-            <div class="flex space-x-2 sm:space-x-6">
-                <a href="./index.html" class="nav-link px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Home</a>
-                <a href="./experience.html" class="nav-link px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Experience</a>
-                <a href="./project.html" class="nav-link px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Projects</a>
-                <a href="./contact.html" class="nav-link px-3 py-2 text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white bg-opacity-70 backdrop-filter backdrop-blur-xl px-6 py-5 z-50">
+        <div class="container mx-auto max-w-6xl flex justify-between items-center">
+            <a href="./index.html" class="text-2xl font-semibold tracking-tight">
+                Syem<span class="font-light">Aziz</span>
+            </a>
+            <div class="flex space-x-8">
+                <a href="./index.html" class="nav-link text-gray-800 hover:text-black">Home</a>
+                <a href="./experience.html" class="nav-link text-gray-800 hover:text-black">Experience</a>
+                <a href="./project.html" class="nav-link text-gray-800 hover:text-black">Projects</a>
+                <a href="./contact.html" class="nav-link text-gray-800 hover:text-black">Contact</a>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto flex-grow px-4 py-12 md:px-0">
-        <div class="flex flex-col md:flex-row items-center">
-            <!-- Left Column: Profile -->
-            <div class="w-full md:w-1/2 mb-8 md:mb-0">
-                <h1 class="text-5xl md:text-6xl font-bold mb-4">
-                    Hi, I'm <span class="gradient-text">Syem Aziz!</span>
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-6xl flex-grow pt-24 pb-32">
+        <!-- Hero Section -->
+        <section class="section flex flex-col md:flex-row items-center justify-between">
+            <div class="w-full md:w-5/12 mb-16 md:mb-0">
+                <h1 class="display-text text-6xl md:text-7xl lg:text-8xl mb-6">
+                    Hello, I'm <span class="gradient-text block mt-2">Syem Aziz</span>
                 </h1>
                 
-                <div class="typing-container flex text-2xl md:text-3xl mt-4 mb-6 h-12">
-                    <span class="mr-2">I'm a</span>
-                    <div class="relative">
-                        <span id="typing-text" class="font-semibold"></span>
-                        <span id="cursor" class="absolute right-0 w-1 h-8 bg-indigo-600 animate-blink"></span>
+                <div class="flex items-center my-8 text-2xl font-light">
+                    <span>I create as a</span>
+                    <div class="ml-3 font-medium" id="typing-container">
+                        <span id="typing-text"></span>
+                        <span class="cursor"></span>
                     </div>
                 </div>
                 
-                <p class="text-gray-600 mb-8 max-w-lg">
-                    Passionate about creating technology that makes a difference. From being captivated by Siri at age 13 to pursuing a career in AI and machine learning, I'm on a journey to build revolutionary systems that enhance human capabilities.
+                <p class="subtitle-text text-xl mb-12 max-w-md">
+                    Passionate about creating technology that makes a difference. From being captivated by Siri at age 13 to pursuing a career in AI and machine learning.
                 </p>
                 
-                <div class="flex space-x-4">
-                    <a href="./projects.html" class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                <div class="flex space-x-5">
+                    <a href="./projects.html" class="apple-button px-8 py-4 text-lg">
                         View Projects
                     </a>
-                    <a href="./contact.html" class="px-6 py-3 border-2 border-indigo-500 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-all transform hover:-translate-y-1">
-                        Contact Me
+                    <a href="./contact.html" class="apple-button-outline px-8 py-4 text-lg">
+                        Get in Touch
                     </a>
                 </div>
             </div>
             
-            <!-- Right Column: About Card -->
-            <div class="w-full md:w-1/2">
-                <div class="card p-6 md:p-8">
-                    <h2 class="text-2xl font-semibold mb-4 gradient-text">About Me</h2>
-                    <p class="text-gray-700 mb-4">
-                        When I was 13, I became captivated by Siri on iOS, which sparked my interest in technology. My curiosity led me to discover that artificial intelligence and machine learning were the key technologies behind it, and I knew I wanted to contribute to this field.
+            <div class="w-full md:w-6/12 md:pl-12">
+                <div class="glass-card p-10">
+                    <h2 class="text-3xl font-semibold mb-8">About Me</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        When I was 13, I became captivated by Siri on iOS, which sparked my interest in technology. My curiosity led me to discover that artificial intelligence and machine learning were the key technologies behind it.
                     </p>
-                    <p class="text-gray-700 mb-4">
-                        I pursued this dream by enrolling in Computer Science and Engineering at the Islamic University of Technology (IUT), one of Bangladesh's top universities. IUT provided me with the perfect environment to nurture my knowledge and work on various projects.
+                    <p class="text-lg text-gray-700 mb-6">
+                        I pursued this dream by enrolling in Computer Science and Engineering at the Islamic University of Technology (IUT), one of Bangladesh's top universities. IUT provided me with the perfect environment to nurture my knowledge.
                     </p>
-                    <p class="text-gray-700">
-                        I've developed a strong passion for Machine Learning and AI, completing various courses and gaining practical experience through Kaggle competitions. I'm excited about the opportunity to learn from and contribute to the field.
-                    </p>
-                    <div class="mt-4">
-                        <a href="./about.html" class="text-indigo-600 hover:text-indigo-800 font-medium hover:underline inline-flex items-center">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    <div class="mt-8">
+                        <a href="./about.html" class="inline-flex items-center text-lg font-medium text-black hover:opacity-70 transition-opacity">
+                            Learn more about my journey
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Social Icons -->
-    <div class="fixed bottom-8 right-8 flex space-x-4">
-        <a href="https://www.linkedin.com/in/syemaziz" target="_blank" class="block">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="w-10 h-10 social-icon">
-        </a>
-        
-        <a href="https://github.com/sanz47" target="_blank" class="block">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub" class="w-10 h-10 social-icon">
-        </a>
+    <div class="fixed bottom-8 right-8 social-container">
+        <div class="flex space-x-5 p-2">
+            <a href="https://www.linkedin.com/in/syemaziz" target="_blank" class="block" aria-label="LinkedIn">
+                <svg class="w-6 h-6 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765c1.396-2.586 7-2.777 7 2.476V19z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://github.com/sanz47" target="_blank" class="block" aria-label="GitHub">
+                <svg class="w-6 h-6 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                </svg>
+            </a>
 
-        <a href="https://www.behance.net/syemaziz" target="_blank" class="block">
-            <img src="behance.png" alt="Behance" class="w-10 h-10 social-icon">
-        </a>
+            <a href="https://www.behance.net/syemaziz" target="_blank" class="block" aria-label="Behance">
+                <svg class="w-6 h-6 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7.803 5.731c.589 0 1.119.051 1.605.155.483.103.895.273 1.243.508.343.235.611.547.804.939.195.387.293.871.293 1.442 0 .62-.139 1.139-.421 1.551-.281.414-.69.753-1.224 1.015.74.213 1.288.556 1.643 1.031.358.476.535 1.061.535 1.755 0 .662-.117 1.212-.348 1.647-.235.437-.553.789-.959 1.048-.407.261-.873.443-1.398.542-.524.099-1.060.147-1.605.147H1.5V5.731h6.303zm-.356 4.123c.48 0 .878-.113 1.192-.345.312-.228.463-.604.463-1.119 0-.286-.051-.522-.151-.707-.103-.189-.24-.335-.417-.442-.179-.104-.384-.178-.613-.221-.229-.044-.464-.068-.708-.068H4.357v2.902h3.09zm.185 4.627c.263 0 .513-.023.75-.068.235-.046.443-.126.627-.241.179-.12.321-.283.429-.491.105-.206.158-.479.158-.814 0-.655-.184-1.119-.552-1.394-.367-.275-.832-.413-1.392-.413H4.357v3.421h3.275zM18.138 16.936c.591.391 1.443.586 2.557.586.795 0 1.486-.15 2.064-.453.576-.303 1.037-.699 1.375-1.195h2.537c-.405 1.29-1.029 2.211-1.863 2.769-.835.555-1.842.834-3.02.834-.82 0-1.563-.134-2.226-.4-.659-.268-1.222-.648-1.687-1.139-.463-.491-.822-1.081-1.076-1.767-.253-.69-.378-1.447-.378-2.274 0-.8.123-1.548.378-2.238.252-.694.611-1.292 1.076-1.795.463-.501 1.028-.889 1.687-1.161.661-.27 1.403-.408 2.226-.408.918 0 1.711.169 2.384.506.675.339 1.228.797 1.658 1.373.433.573.739 1.238.923 1.989.183.752.237 1.545.164 2.387h-7.547c0 .839.239 1.628.716 2.386zm4.43-6.002c-.468-.342-1.107-.513-1.917-.513-.461 0-.875.065-1.243.195-.366.132-.682.314-.942.548-.259.232-.457.509-.591.826-.132.322-.21.669-.229 1.042h5.847c-.221-1.133-.705-1.755-1.925-2.098zM15.882 4.567h7.303v1.729h-7.303z"></path>
+                </svg>
+            </a>
+        </div>
     </div>
 
     <script>
-        // Typing effect
-        const words = ["Developer", "Teacher", "Designer"];
+        // Enhanced typing effect with smooth transitions
+        const words = ["Developer", "Designer", "AI Enthusiast"];
         let wordIndex = 0;
-        let letterIndex = 0;
-        const typingSpeed = 100;
-        const pauseDuration = 1500;
-        const typingTextElement = document.getElementById("typing-text");
-
-        function typeWord() {
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingDelay = 100;
+        
+        const typingElement = document.getElementById('typing-text');
+        
+        function typeEffect() {
             const currentWord = words[wordIndex];
-            if (letterIndex < currentWord.length) {
-                typingTextElement.textContent += currentWord[letterIndex];
-                letterIndex++;
-                setTimeout(typeWord, typingSpeed);
+            
+            if (isDeleting) {
+                // Deleting text
+                typingElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typingDelay = 50; // Faster when deleting
             } else {
-                setTimeout(eraseWord, pauseDuration);
+                // Typing text
+                typingElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typingDelay = 150; // Slower when typing
             }
-        }
-
-        function eraseWord() {
-            if (letterIndex > 0) {
-                typingTextElement.textContent = typingTextElement.textContent.slice(0, -1);
-                letterIndex--;
-                setTimeout(eraseWord, typingSpeed / 2);
-            } else {
+            
+            // Logic for word cycling
+            if (!isDeleting && charIndex === currentWord.length) {
+                // Pause at end of word
+                isDeleting = true;
+                typingDelay = 1500;
+            } else if (isDeleting && charIndex === 0) {
+                // Move to next word
+                isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
-                setTimeout(typeWord, pauseDuration / 2);
+                typingDelay = 500; // Pause before new word
             }
+            
+            setTimeout(typeEffect, typingDelay);
         }
-
-        // Start typing animation when page loads
-        window.addEventListener("load", () => {
-            setTimeout(typeWord, 500);
+        
+        // Start typing effect after page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeEffect, 1000);
         });
     </script>
 </body>
