@@ -5,102 +5,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syem Aziz | Experience</title>
-    <link href="./output.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-dark-gray: #1d1d1f;
+            --apple-medium-gray: #6e6e73;
+            --apple-light-gray: #f5f5f7;
+            --apple-border-gray: #d2d2d7;
+            --title-highlight-color: var(--apple-blue); /* Using accent blue for highlight */
+        }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #FFFFFF;
+            color: var(--apple-dark-gray);
+            line-height: 1.6;
+            letter-spacing: -0.011em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .bg-shapes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+        .shape { position: absolute; opacity: 0.08; filter: blur(150px); border-radius: 50%; }
+        .shape-1 { width: 700px; height: 700px; top: -200px; left: -200px; background: #cce5ff; }
+        .shape-2 { width: 600px; height: 600px; bottom: -150px; right: -150px; background: #d8cff0; }
+        .shape-3 { width: 450px; height: 450px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #ffe8ef; }
+
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .nav-link {
+            position: relative; font-weight: 500; color: var(--apple-medium-gray);
+            transition: color 0.2s ease-out; padding: 0.25rem 0.1rem;
+        }
+        .nav-link:hover { color: var(--apple-blue); }
+        .nav-link.active { color: var(--apple-blue); font-weight: 600; } /* Active link is blue for this page */
+        
+        .page-transition { opacity: 0; animation: fadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        .highlight-text { color: var(--title-highlight-color); }
+        
+        .section-header { padding-top: 5rem; padding-bottom: 3rem; }
+        .main-content-area { padding-bottom: 6rem; }
+
+        /* Minimalist Timeline */
+        .timeline-container { position: relative; margin: 0 auto; }
+        .timeline-item { display: flex; position: relative; margin-bottom: 4rem; }
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-left { width: 50%; padding-right: 30px; text-align: right; }
+        .timeline-right { width: 50%; padding-left: 30px; }
+        
+        .timeline-line {
+            position: absolute; width: 2px; background-color: var(--apple-border-gray);
+            top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%);
+        }
+        .timeline-dot {
+            position: absolute; width: 14px; height: 14px; background-color: var(--apple-blue);
+            border-radius: 50%; left: 50%; top: 5px; /* Adjust top to align with text */
+            transform: translateX(-50%); z-index: 1;
+        }
+         .timeline-year-marker {
+            position: sticky; top: 100px; /* Adjust based on nav height */
+            left: 50%; transform: translateX(-50%);
+            padding: 0.25rem 0.75rem; background-color: #fff;
+            border: 1px solid var(--apple-border-gray);
+            border-radius: 980px; font-weight: 600;
+            color: var(--apple-dark-gray); z-index: 2;
+            text-align: center; margin-bottom: 2rem; display: inline-block;
+        }
+        /* This approach for year markers is simpler and might require manual placement or JS for dynamic stickiness relative to scroll. */
+        /* For pure CSS stickiness, place them outside the flex items and control their position relative to the container. */
+        /* A simpler way is to have a year header before a group of items. */
+        
+        .timeline-content-card {
+            background-color: #fff; padding: 1.75rem; border-radius: 16px;
+            border: 1px solid var(--apple-border-gray);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+        }
+        .timeline-content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        }
+        .timeline-date-info { padding-top: 0.25rem; }
+        .timeline-date-year { font-size: 1rem; font-weight: 600; color: var(--apple-dark-gray); }
+        .timeline-date-month { font-size: 0.9rem; color: var(--apple-medium-gray); }
+
+        .timeline-title { font-weight: 600; font-size: 1.25rem; margin-bottom: 0.25rem; color: var(--apple-dark-gray); }
+        .timeline-company { color: var(--apple-medium-gray); font-weight: 500; margin-bottom: 0.75rem; }
+        .timeline-description { font-size: 0.95rem; color: var(--apple-dark-gray); line-height: 1.55; }
+        .timeline-period-badge {
+            display: inline-block; padding: 3px 10px; border-radius: 980px; font-size: 0.8rem;
+            font-weight: 500; margin-top: 1rem; background-color: var(--apple-light-gray);
+            color: var(--apple-medium-gray); border: 1px solid var(--apple-border-gray);
+        }
+
+        /* Alternating sides */
+        .timeline-item:nth-child(odd) .timeline-left { order: 1; }
+        .timeline-item:nth-child(odd) .timeline-right { order: 2; text-align: left; }
+        .timeline-item:nth-child(even) .timeline-left { order: 2; text-align: left; padding-left: 30px; padding-right: 0; }
+        .timeline-item:nth-child(even) .timeline-right { order: 1; text-align: right; padding-right: 30px; padding-left: 0; }
+
+        .main-footer {
+            margin-top: auto; padding: 2.5rem 1.5rem; text-align: center;
+            font-size: 0.875rem; color: var(--apple-medium-gray); border-top: 1px solid var(--apple-border-gray);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-left, .timeline-right { width: 100%; padding-left: 30px; padding-right: 0; text-align: left; }
+            .timeline-item:nth-child(odd) .timeline-left, .timeline-item:nth-child(even) .timeline-left { order: 2; padding-left: 30px; }
+            .timeline-item:nth-child(odd) .timeline-right, .timeline-item:nth-child(even) .timeline-right { order: 1; padding-left: 0px; padding-right: 0; margin-bottom: 1rem; }
+            .timeline-date-info { text-align: left; }
+            .timeline-line { left: 10px; } /* Shift line to the left */
+            .timeline-dot { left: 10px; }   /* Shift dot to the left */
+            .timeline-item { margin-bottom: 2.5rem; }
+            .section-header { padding-top: 4rem; padding-bottom: 2rem; }
+        }
+
+    </style>
 </head>
 
-<body class="opacity-0 transition-opacity duration-1000 flex flex-col items-start justify-center h-screen font-suse bg-gradient-to-br from-white to-white text-black pl-10">
+<body class="page-transition">
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 right-0 w-full bg-white p-4 shadow-lg rounded-lg z-50 text-right">
-        <div class="flex justify-between items-center">
-            <section class="ml-4 text-4xl font-bold cursor-pointer" onclick="window.location.href='./index.html';">Syem Aziz</section>
-            <div>
-                <a href="./index.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Home</a>
-                <a href="./experience.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Experience</a>
-                <a href="./project.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Projects</a>
-                <a href="./contact.html" class="text-black px-5 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-500">Contact</a>
+    <nav class="sticky top-0 main-nav px-6 py-4 z-50">
+        <div class="container mx-auto max-w-6xl flex justify-between items-center">
+            <a href="./index.html" class="text-xl font-semibold tracking-tight hover:opacity-75 transition-opacity">
+                Syem<span class="font-light">Aziz</span>
+            </a>
+            <div class="flex space-x-5 md:space-x-7">
+                <a href="./index.html" class="nav-link text-sm md:text-base">Home</a>
+                <a href="./experience.html" class="nav-link active text-sm md:text-base">Experience</a>
+                <a href="./project.html" class="nav-link text-sm md:text-base">Projects</a>
+                <a href="./contact.html" class="nav-link text-sm md:text-base">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Experience Section -->
-    <section class="w-full h-full mt-36">
-        <h1 class="text-6xl text-black mb-12 text-center mt-8">My Experience</h1>
-        <div class="relative max-w-7xl mx-auto px-8 lg:px-16 pb-20">
-            <div class="border-l-2 border-gray-400 absolute left-1/2 transform -translate-x-1/2 h-full">
-            </div> <!-- Timeline -->
+    <header class="container mx-auto max-w-4xl px-6 section-header text-center md:text-left">
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-3">
+            My <span class="highlight-text">Experience</span>
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto md:mx-0">
+            A timeline of my professional journey and key roles.
+        </p>
+    </header>
 
-            <!-- Experience Item 1 (Right) -->
-            <div class="mb-8 flex justify-between items-center w-full">
-                <div class="order-1 w-5/12">
-                    <p class="mb-2 font-bold text-center text-6xl">2024, August</p>
+    <main class="container mx-auto max-w-4xl px-6 main-content-area">
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <!-- Year 2024 -->
+            <div class="text-2xl font-semibold text-gray-700 mb-6 mt-4 pl-1 md:pl-0">2024</div>
+
+            <!-- Experience 1 -->
+            <div class="timeline-item">
+                <div class="timeline-left"> <!-- Date info -->
+                    <div class="timeline-date-info">
+                        <div class="timeline-date-year">August 2024</div>
+                        <div class="timeline-date-month">Present</div>
+                    </div>
                 </div>
-                <div class="order-1 w-5/12 bg-white shadow-lg rounded-lg p-6 transform transition hover:scale-105 text-right">
-                    <h4 class="mb-2 font-bold text-2xl">Lecturer</h4>
-                    <p class="text-gray-500 mb-1">Bangladesh University of Business & Technology</p>
-                    <p class="leading-tight mb-3">Teaching undergraduate courses on Algorithms and Problem-Solving Techniques, with a focus on fundamental
-                        concepts, algorithmic analysis, and real-world applications. Also employing the Outcome-Based Education (OBE) methodology to align learning outcomes with course content,
-                        fostering a student-centered learning environment.</p>
-                    <span class="text-sm text-gray-400">Aug, 2024 - Present</span>
+                <div class="timeline-dot"></div>
+                <div class="timeline-right"> <!-- Card -->
+                    <div class="timeline-content-card">
+                        <h3 class="timeline-title">Lecturer</h3>
+                        <p class="timeline-company">Bangladesh University of Business & Technology</p>
+                        <p class="timeline-description">
+                            Teaching Algorithms and Problem-Solving. Employing Outcome-Based Education (OBE) methodology.
+                        </p>
+                        <span class="timeline-period-badge">Full-time</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience 2 -->
+            <div class="timeline-item">
+                <div class="timeline-left"> <!-- Card -->
+                     <div class="timeline-content-card">
+                        <h3 class="timeline-title">Operations Intern</h3>
+                        <p class="timeline-company">ShopUp</p>
+                        <p class="timeline-description">
+                            Optimized workflows, data analysis with SQL/Python, Advanced Excel, and Power BI for reporting.
+                        </p>
+                        <span class="timeline-period-badge">Internship</span>
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-right"> <!-- Date info -->
+                    <div class="timeline-date-info">
+                        <div class="timeline-date-year">June 2024</div>
+                        <div class="timeline-date-month">August 2024</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Experience Item 2 (Left) -->
-            <div class="mb-8 flex justify-between items-center w-full">
-                <div class="order-1 w-5/12 bg-white shadow-lg rounded-lg p-6 transform transition hover:scale-105 text-left">
-                    <h4 class="mb-2 font-bold text-2xl">Operations Intern</h4>
-                    <p class="text-gray-500 mb-1">ShopUp</p>
-                    <p class="leading-tight mb-3">Acquired hands-on experience in optimizing workflows, streamlining processes, and conducting data analysis using SQL and Python. Proficient in Advanced Excel for detailed data analysis and reporting, as well as Power BI for data visualization and business intelligence, focused on enhancing operational efficiency and performance.</p>
-                    <span class="text-sm text-gray-400">Jun, 2024 - Aug, 2024</span>
-                </div>
-                <div class="order-1 font-bold text-center text-6xl w-5/12">June, 2024</div>
-            </div>
+            <!-- Year 2023 -->
+             <div class="text-2xl font-semibold text-gray-700 mb-6 mt-10 pl-1 md:pl-0">2023</div>
 
-            <!-- Experience Item 3 (Right) -->
-            <div class="mb-8 flex justify-between items-center w-full">
-                <div class="order-1 font-bold text-center text-6xl w-5/12">July, 2023</div>
-                <div class="order-1 w-5/12 bg-white shadow-lg rounded-lg p-6 transform transition hover:scale-105 text-right">
-                    <h4 class="mb-2 font-bold text-2xl">Machine Learning Intern</h4>
-                    <p class="text-gray-500 mb-1">Grameen Communications</p>
-                    <p class="leading-tight mb-3">Worked in their signature product GBanker and developed a chatbot for their official website. Also worked in developing a model for predicting credit score of users.<p>
-                    <span class="text-sm text-gray-400">Jul, 2023 - Sept, 2023</span>
+            <!-- Experience 3 -->
+            <div class="timeline-item">
+                <div class="timeline-left"> <!-- Date info -->
+                    <div class="timeline-date-info">
+                         <div class="timeline-date-year">July 2023</div>
+                         <div class="timeline-date-month">September 2023</div>
+                    </div>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-right"> <!-- Card -->
+                    <div class="timeline-content-card">
+                        <h3 class="timeline-title">Machine Learning Intern</h3>
+                        <p class="timeline-company">Grameen Communications</p>
+                        <p class="timeline-description">
+                            Developed a chatbot for GBanker and a credit score prediction model.
+                        </p>
+                        <span class="timeline-period-badge">Internship</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- Experience Item 4 (Left) -->
-            <div class="flex justify-between items-center w-full mb-10">
-                <div class="order-1 w-5/12 bg-white shadow-lg rounded-lg p-6 transform transition hover:scale-105 text-left">
-                    <h4 class="mb-2 font-bold text-2xl">Web Developer</h4>
-                    <p class="text-gray-500 mb-1">Tree Plus Plus</p>
-                    <p class="leading-tight mb-3">Worked as a Web Developer to build a website for a project focused on creating a greener and cleaner world. The goal is to develop a technology-enabled carbon offsetting platform aimed at promoting environmental sustainability.</p>
-                    <span class="text-sm text-gray-400">Jun, 2023 - Jun, 2024</span>
+            
+            <!-- Experience 4 -->
+            <div class="timeline-item">
+                 <div class="timeline-left"> <!-- Card -->
+                    <div class="timeline-content-card">
+                        <h3 class="timeline-title">Web Developer</h3>
+                        <p class="timeline-company">Tree Plus Plus</p>
+                        <p class="timeline-description">
+                            Built a website for a carbon offsetting platform promoting environmental sustainability.
+                        </p>
+                        <span class="timeline-period-badge">Part-time</span>
+                    </div>
                 </div>
-                <div class="order-1 font-bold text-center text-6xl w-5/12">June, 2023</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-right"> <!-- Date info -->
+                     <div class="timeline-date-info">
+                        <div class="timeline-date-year">June 2023</div>
+                        <div class="timeline-date-month">June 2024</div>
+                    </div>
+                </div>
             </div>
         </div>
+    </main>
 
-
-
-
-
-
-
-    </section>
+    <footer class="main-footer">
+        <p>© <span id="currentYear"></span> Syem Aziz. All rights reserved.</p>
+    </footer>
 
     <script>
-        
-        // Fade-in effect when the page loads
-        window.addEventListener("load", () => {
-            document.body.classList.remove("opacity-0");
-        });
-
-        // Fade-out effect before leaving the page
-        window.addEventListener("beforeunload", () => {
-            document.body.style.opacity = 0;
+        document.addEventListener("DOMContentLoaded", () => {
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+            // Simple fade in for timeline cards for effect
+            const cards = document.querySelectorAll('.timeline-content-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + index * 100);
+            });
         });
     </script>
 </body>
-
 </html>

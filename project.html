@@ -6,151 +6,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syem Aziz | Projects</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Simplified hover effect */
+        :root {
+            --apple-blue: #007AFF;
+            --apple-dark-gray: #1d1d1f;
+            --apple-medium-gray: #6e6e73;
+            --apple-light-gray: #f5f5f7;
+            --apple-border-gray: #d2d2d7;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--apple-light-gray); /* Light gray background for project page */
+            color: var(--apple-dark-gray);
+            line-height: 1.6;
+            letter-spacing: -0.011em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            /* Use white background for nav on this page for contrast with light gray body */
+        }
+        .nav-link {
+            position: relative; font-weight: 500; color: var(--apple-medium-gray);
+            transition: color 0.2s ease-out; padding: 0.25rem 0.1rem;
+        }
+        .nav-link:hover { color: var(--apple-blue); }
+        .nav-link.active { color: var(--apple-blue); font-weight: 600; }
+        
+        .page-transition { opacity: 0; animation: fadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+
         .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Subtle icon animation */
-        .tech-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .tech-icon:hover {
-            transform: scale(1.1);
-        }
-        <style>
-        /* Simplified hover effect */
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Modal Styling */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-content {
-            position: relative;
             background-color: #fff;
-            margin: auto;
-            padding: 20px;
-            width: 90%;
-            max-width: 800px;
-            top: 50px;
-            border-radius: 8px;
+            border-radius: 18px; /* Apple-like rounded corners */
+            padding: 1.5rem; /* 24px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--apple-border-gray);
+            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+            display: flex;
+            flex-direction: column;
         }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+        }
+        .project-card img.project-image {
+            width: 100%;
+            height: 180px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-radius: 12px; /* Rounded corners for image */
+            margin-bottom: 1rem;
+        }
+        .project-card h2 {
+            font-size: 1.375rem; /* 22px */
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--apple-dark-gray);
+        }
+        .project-card .project-date {
+            font-size: 0.875rem; /* 14px */
+            color: var(--apple-medium-gray);
+            margin-bottom: 0.75rem;
+        }
+        .project-card .project-description {
+            font-size: 0.95rem; /* 15px */
+            color: var(--apple-dark-gray);
+            line-height: 1.5;
+            flex-grow: 1; /* Allows description to take up space */
+            margin-bottom: 1rem;
+        }
+        .project-card .tech-icons-container { margin-top: auto; /* Pushes icons to bottom */ }
+        .tech-icon {
+            width: 2rem; /* 32px */
+            height: 2rem; /* 32px */
+            display: inline-block;
+            transition: transform 0.2s ease;
+            filter: grayscale(30%); /* Slightly desaturate icons */
+            opacity: 0.8;
+        }
+        .tech-icon:hover { transform: scale(1.1); filter: grayscale(0%); opacity: 1; }
 
-        /* Close button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+        .section-header { padding-top: 5rem; padding-bottom: 3rem; }
+        .main-content-area { padding-bottom: 6rem; }
+        
+        .main-footer {
+            margin-top: auto; padding: 2.5rem 1.5rem; text-align: center;
+            font-size: 0.875rem; color: var(--apple-medium-gray);
+            background-color: #fff; /* Footer background to match nav */
+            border-top: 1px solid var(--apple-border-gray);
         }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            cursor: pointer;
-        }
-    </style>
+        /* Modal styles will be removed as they are not very Apple-like for project display */
     </style>
 </head>
 
-<body class="opacity-0 transition-opacity duration-1000 flex flex-col items-center justify-center font-suse bg-gray-50 text-black px-10">
+<body class="page-transition">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 right-0 w-full bg-white p-4 shadow-lg rounded-lg z-50 text-right">
-        <div class="flex justify-between items-center">
-            <section class="ml-4 text-4xl font-bold cursor-pointer" onclick="window.location.href='./index.html';">Syem Aziz</section>
-            <div>
-                <a href="./index.html" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Home</a>
-                <a href="./experience.html" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Experience</a>
-                <a href="./project.html" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Projects</a>
-                <a href="./contact.html" class="text-black px-5 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">Contact</a>
+    <nav class="sticky top-0 main-nav px-6 py-4 z-50">
+        <div class="container mx-auto max-w-6xl flex justify-between items-center">
+            <a href="./index.html" class="text-xl font-semibold tracking-tight hover:opacity-75 transition-opacity">
+                Syem<span class="font-light">Aziz</span>
+            </a>
+            <div class="flex space-x-5 md:space-x-7">
+                <a href="./index.html" class="nav-link text-sm md:text-base">Home</a>
+                <a href="./experience.html" class="nav-link text-sm md:text-base">Experience</a>
+                <a href="./project.html" class="nav-link active text-sm md:text-base">Projects</a>
+                <a href="./contact.html" class="nav-link text-sm md:text-base">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Projects Section with Simple Enhancements -->
-    <section class="w-full h-full mt-32 mb-24">
-        <h1 class="text-4xl text-gray-800 font-bold mb-12 text-center">My Projects</h1>
-        
-        <!-- Simple Grid Layout for Projects -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto ">
+    <header class="container mx-auto max-w-6xl px-6 section-header text-center md:text-left">
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-3 text-gray-800">
+            My Projects
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto md:mx-0">
+            A selection of my work and personal projects.
+        </p>
+    </header>
+    
+    <main class="container mx-auto max-w-6xl px-6 main-content-area">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
-            <!-- Project Card 1 with subtle hover effect -->
-            <div class="project-card bg-white shadow-md rounded-lg p-6 hover:scale-150">
-                <img src="ethics.jpg" alt="Ethics" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h2 class="text-2xl font-bold mb-2">Ethical Story Classification</h2>
-                <p class="text-gray-500 mb-4">2024</p>
-                <p class="leading-tight text-gray-700">Classify ethical story</p>
-                <div class="mt-4">
-                    <img src="python.png" alt="python" class="w-12 h-12 inline-block tech-icon">
+            <div class="project-card">
+                <img src="ethics.jpg" alt="Ethical Story Classification Project Thumbnail" class="project-image">
+                <h2>Ethical Story Classification</h2>
+                <p class="project-date">2024</p>
+                <p class="project-description">A machine learning model to classify stories based on ethical content and nuances.</p>
+                <div class="tech-icons-container">
+                    <img src="python.png" alt="Python" class="tech-icon" title="Python">
+                    {/* Add more icons like scikit-learn, pandas if applicable */}
                 </div>
             </div>
 
-            <!-- Project Card 2 with subtle hover effect -->
-            <div class="project-card bg-white shadow-md rounded-lg p-6">
-                <img src="Designer.png" alt="Emotion Classification" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h2 class="text-2xl font-bold mb-2">Speech Emotion Recognition</h2>
-                <p class="text-gray-500 mb-4">2023</p>
-                <p class="leading-tight text-gray-700">Speech emotion recognition in Bengali</p>
-                <div class="mt-4">
-                    <img src="python.png" alt="Web Icon" class="w-12 h-12 inline-block tech-icon">
+            <div class="project-card">
+                <img src="Designer.png" alt="Speech Emotion Recognition Project Thumbnail" class="project-image">
+                <h2>Speech Emotion Recognition</h2>
+                <p class="project-date">2023</p>
+                <p class="project-description">Developed a system to recognize emotions from Bengali speech using deep learning techniques.</p>
+                 <div class="tech-icons-container">
+                    <img src="python.png" alt="Python" class="tech-icon" title="Python">
+                    {/* Add more icons like TensorFlow/PyTorch, Librosa */}
                 </div>
             </div>
 
-            <!-- Project Card 3 with subtle hover effect -->
-            <div class="project-card bg-white shadow-md rounded-lg p-6">
-                <img src="nim.png" alt="NimBus" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h2 class="text-2xl font-bold mb-2">NimBus</h2>
-                <p class="text-gray-500 mb-4">2020</p>
-                <p class="leading-tight text-gray-700">A game of Nim built in C++</p>
-                <div class="mt-4">
-                    <img src="cpp.png" alt="3D Icon" class="w-12 h-12 inline-block tech-icon">
+            <div class="project-card">
+                <img src="nim.png" alt="NimBus Game Project Thumbnail" class="project-image">
+                <h2>NimBus Game</h2>
+                <p class="project-date">2020</p>
+                <p class="project-description">A classic game of Nim implemented in C++ with a simple console-based user interface.</p>
+                 <div class="tech-icons-container">
+                    <img src="cpp.png" alt="C++" class="tech-icon" title="C++">
                 </div>
             </div>
+            
+            {/* Add more project cards here as needed */}
 
         </div>
-       
-    </section>
-    <span class="text-center mb-10 text-gray-500">More projects coming soon...</span>
+        <p class="text-center mt-12 text-gray-500">More projects coming soon...</p>
+    </main>
+
+    <footer class="main-footer">
+        <p>© <span id="currentYear"></span> Syem Aziz. All rights reserved.</p>
+    </footer>
 
     <script>
-       
-        // Fade-in effect when the page loads
         window.addEventListener("load", () => {
-            document.body.classList.remove("opacity-0");
-        });
-
-        // Fade-out effect before leaving the page
-        window.addEventListener("beforeunload", () => {
-            document.body.style.opacity = 0;
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
         });
     </script>
 
 </body>
-
 </html>
