@@ -16,120 +16,129 @@
 }
 
 body {
-        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        background-color: var(--apple-light-gray); /* Light gray background for project page */
-        color: var(--apple-dark-gray);
-        line-height: 1.6;
-        letter-spacing: -0.011em;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    
-    .main-nav {
-        background-color: rgba(255, 255, 255, 0.8); 
-        backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%);
-        border-bottom: 1px solid rgba(0,0,0,0.06);
-        /* Use white background for nav on this page for contrast with light gray body */
-    }
-    .nav-link {
-        position: relative; font-weight: 500; color: var(--apple-medium-gray);
-        transition: color 0.2s ease-out; padding: 0.25rem 0.1rem;
-    }
-    .nav-link:hover { color: var(--apple-blue); }
-    .nav-link.active { color: var(--apple-blue); font-weight: 600; }
-    
-    .page-transition { opacity: 0; animation: fadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards; }
-    @keyframes fadeIn { to { opacity: 1; } }
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--apple-light-gray);
+    color: var(--apple-dark-gray);
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-    .project-card {
-        background-color: #fff;
-        border-radius: 18px; /* Apple-like rounded corners */
-        padding: 1.5rem; /* 24px */
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        border: 1px solid var(--apple-border-gray);
-        transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
-        display: flex;
-        flex-direction: column;
-    }
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-    }
-    .project-card img.project-image {
-        width: 100%;
-        height: 180px; /* Fixed height for consistency */
-        object-fit: cover;
-        border-radius: 12px; /* Rounded corners for image */
-        margin-bottom: 1rem;
-    }
-    .project-card h2 {
-        font-size: 1.375rem; /* 22px */
-        font-weight: 600;
-        margin-bottom: 0.25rem;
-        color: var(--apple-dark-gray);
-    }
-    .project-card .project-date {
-        font-size: 0.875rem; /* 14px */
-        color: var(--apple-medium-gray);
-        margin-bottom: 0.75rem;
-    }
-    .project-card .project-description {
-        font-size: 0.95rem; /* 15px */
-        color: var(--apple-dark-gray);
-        line-height: 1.5;
-        flex-grow: 1; /* Allows description to take up space */
-        margin-bottom: 1rem;
-    }
-    .project-card .tech-icons-container { margin-top: auto; /* Pushes icons to bottom */ }
-    .tech-icon {
-        width: 2rem; /* 32px */
-        height: 2rem; /* 32px */
-        display: inline-block;
-        transition: transform 0.2s ease;
-        filter: grayscale(30%); /* Slightly desaturate icons */
-        opacity: 0.8;
-        margin-right: 0.5rem;
-    }
-    .tech-icon:hover { transform: scale(1.1); filter: grayscale(0%); opacity: 1; }
+.main-nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
 
-    .status-badge {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 12px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-    }
-    .status-wip {
-        background-color: #fff3cd;
-        color: #856404;
-    }
-    .status-review {
-        background-color: #d1ecf1;
-        color: #0c5460;
-    }
-    .status-active {
-        background-color: #d4edda;
-        color: #155724;
-    }
-    .status-finished {
-        background-color: #5794a1;
-        color: #f6fadf;
-    }
+.nav-link {
+    position: relative; font-weight: 500; color: var(--apple-medium-gray);
+    transition: color 0.2s ease-out; padding: 0.25rem 0.1rem;
+}
+.nav-link:hover { color: var(--apple-blue); }
+.nav-link.active { color: var(--apple-blue); font-weight: 600; }
 
+.page-transition { opacity: 0; animation: fadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards; }
+@keyframes fadeIn { to { opacity: 1; } }
 
-    .section-header { padding-top: 5rem; padding-bottom: 3rem; }
-    .main-content-area { padding-bottom: 6rem; }
-    
-    .main-footer {
-        margin-top: auto; padding: 2.5rem 1.5rem; text-align: center;
-        font-size: 0.875rem; color: var(--apple-medium-gray);
-        background-color: #fff; /* Footer background to match nav */
-        border-top: 1px solid var(--apple-border-gray);
-    }
+a.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+a.project-link:focus-visible {
+    outline: 2px solid var(--apple-blue);
+    outline-offset: 4px;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--apple-border-gray);
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+.project-card img.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+.project-card h2 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--apple-dark-gray);
+}
+.project-card .project-date {
+    font-size: 0.875rem;
+    color: var(--apple-medium-gray);
+    margin-bottom: 0.75rem;
+}
+.project-card .project-description {
+    font-size: 0.95rem;
+    color: var(--apple-dark-gray);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+.project-card .tech-icons-container { margin-top: auto; }
+.tech-icon {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    filter: grayscale(30%);
+    opacity: 0.8;
+    margin-right: 0.5rem;
+}
+.tech-icon:hover { transform: scale(1.1); filter: grayscale(0%); opacity: 1; }
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+.status-wip {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.status-review {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+.status-active {
+    background-color: #d4edda;
+    color: #155724;
+}
+.status-finished {
+    background-color: #5794a1;
+    color: #f6fadf;
+}
+
+.section-header { padding-top: 5rem; padding-bottom: 3rem; }
+.main-content-area { padding-bottom: 6rem; }
+
+.main-footer {
+    margin-top: auto; padding: 2.5rem 1.5rem; text-align: center;
+    font-size: 0.875rem; color: var(--apple-medium-gray);
+    background-color: #fff;
+    border-top: 1px solid var(--apple-border-gray);
+}
 </style>
 </head>
 <body class="page-transition">
@@ -161,17 +170,18 @@ body {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
         <!-- Research Projects -->
+        <a href="https://github.com/syemaziz/llm-ethical-reasoning" class="project-link" target="_blank">
         <div class="project-card">
             <img src="llm.jpeg" alt="LLM Ethical Reasoning Project Thumbnail" class="project-image">
             <div class="status-badge status-active">Active Project</div>
             <h2>Evaluating LLM Ethical Reasoning</h2>
-            <!-- <p class="project-date">2025 - Under review at EMNLP 2025</p> -->
             <p class="project-description">Investigated moral reasoning capabilities of LLMs and their susceptibility to prompt injection attacks. Proposed the Immorality Leaning Gap benchmark to quantify bias toward immoral scenarios.</p>
             <div class="tech-icons-container">
                 <img src="python.png" alt="Python" class="tech-icon" title="Python">
             </div>
-        </div>
+        </div></a>
 
+        <a href="https://github.com/syemaziz/visiontrap" class="project-link" target="_blank">
         <div class="project-card">
             <img src="vision.jpeg" alt="VisionTrap Project Thumbnail" class="project-image">
             <div class="status-badge status-review">Under Review</div>
@@ -181,8 +191,9 @@ body {
             <div class="tech-icons-container">
                 <img src="python.png" alt="Python" class="tech-icon" title="Python">
             </div>
-        </div>
+        </div></a>
 
+        <a href="https://github.com/syemaziz/gnn-edu-framework" class="project-link" target="_blank">
         <div class="project-card">
             <img src="gnn.jpeg" alt="GNN Educational Framework Thumbnail" class="project-image">
             <div class="status-badge status-active">Active Project</div>
@@ -192,9 +203,9 @@ body {
             <div class="tech-icons-container">
                 <img src="python.png" alt="Python" class="tech-icon" title="Python">
             </div>
-        </div>
+        </div></a>
 
-        <!-- Previous Projects -->
+        <a href="https://github.com/syemaziz/ethical-story-classifier" class="project-link" target="_blank">
         <div class="project-card">
             <img src="ethics.png" alt="Ethical Story Classification Project Thumbnail" class="project-image">
             <div class="status-badge status-active">Active Project</div>
@@ -204,29 +215,45 @@ body {
             <div class="tech-icons-container">
                 <img src="python.png" alt="Python" class="tech-icon" title="Python">
             </div>
-        </div>
+        </div></a>
 
+        <a href="https://github.com/syemaziz/speech-emotion-recognition" class="project-link" target="_blank">
         <div class="project-card">
             <img src="speech.png" alt="Speech Emotion Recognition Project Thumbnail" class="project-image">
-                <div class="status-badge status-active">Active Project</div>
+            <div class="status-badge status-active">Active Project</div>
             <h2>Speech Emotion Recognition</h2>
             <p class="project-date">2023</p>
             <p class="project-description">Developed a system to recognize emotions from Bengali speech using deep learning techniques.</p>
-             <div class="tech-icons-container">
+            <div class="tech-icons-container">
                 <img src="python.png" alt="Python" class="tech-icon" title="Python">
             </div>
-        </div>
+        </div></a>
 
+        <a href="https://github.com/syemaziz/nimbus-game" class="project-link" target="_blank">
         <div class="project-card">
             <img src="nim.png" alt="NimBus Game Project Thumbnail" class="project-image">
-                <div class="status-badge status-active">Active Project</div>
+            <div class="status-badge status-finished">Finished</div>
             <h2>NimBus Game</h2>
             <p class="project-date">2020</p>
             <p class="project-description">A classic game of Nim implemented in C++ with a simple console-based user interface.</p>
-             <div class="tech-icons-container">
+            <div class="tech-icons-container">
                 <img src="cpp.png" alt="C++" class="tech-icon" title="C++">
             </div>
-        </div>
+        </div></a>
+
+        <!-- New Project -->
+        <a href="https://github.com/syemaziz/assistableme" class="project-link" target="_blank">
+        <div class="project-card">
+            <img src="assistableme.png" alt="AssistableMe Project Thumbnail" class="project-image">
+            <div class="status-badge status-active">Active Project</div>
+            <h2>AssistableMe</h2>
+            <p class="project-date">2025</p>
+            <p class="project-description">An AI-powered assistive platform designed to help individuals with disabilities navigate digital interfaces more effectively through adaptive voice and gesture control.</p>
+            <div class="tech-icons-container">
+                <img src="python.png" alt="Python" class="tech-icon" title="Python">
+                <img src="js.png" alt="JavaScript" class="tech-icon" title="JavaScript">
+            </div>
+        </div></a>
 
     </div>
 </main>
@@ -236,12 +263,12 @@ body {
 </footer>
 
 <script>
-    window.addEventListener("load", () => {
-        const yearSpan = document.getElementById('currentYear');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
-    });
+window.addEventListener("load", () => {
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
 </script>
 </body>
 </html>
