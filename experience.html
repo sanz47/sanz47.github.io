@@ -1,312 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syem Aziz | Experience</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syem Aziz | Experience</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <style>
-        :root {
-            --apple-blue: #007AFF;
-            --apple-dark-gray: #1d1d1f;
-            --apple-medium-gray: #6e6e73;
-            --apple-light-gray: #f5f5f7;
-            --apple-border-gray: #d2d2d7;
-            --title-highlight-color: var(--apple-blue); /* Using accent blue for highlight */
-        }
-        
-        body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #FFFFFF;
-            color: var(--apple-dark-gray);
-            line-height: 1.6;
-            letter-spacing: -0.011em;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        .bg-shapes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-        .shape { position: absolute; opacity: 0.08; filter: blur(150px); border-radius: 50%; }
-        .shape-1 { width: 700px; height: 700px; top: -200px; left: -200px; background: #cce5ff; }
-        .shape-2 { width: 600px; height: 600px; bottom: -150px; right: -150px; background: #d8cff0; }
-        .shape-3 { width: 450px; height: 450px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #ffe8ef; }
+  <style>
+    :root {
+      --apple-blue: #007AFF;
+      --apple-dark-gray: #1d1d1f;
+      --apple-medium-gray: #6e6e73;
+      --apple-light-gray: #f5f5f7;
+      --apple-border-gray: #d2d2d7;
+      --title-highlight-color: var(--apple-blue);
+    }
 
-        .main-nav {
-            background-color: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-        .nav-link {
-            position: relative; font-weight: 500; color: var(--apple-medium-gray);
-            transition: color 0.2s ease-out; padding: 0.25rem 0.1rem;
-        }
-        .nav-link:hover { color: var(--apple-blue); }
-        .nav-link.active { color: var(--apple-blue); font-weight: 600; } /* Active link is blue for this page */
-        
-        .page-transition { opacity: 0; animation: fadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards; }
-        @keyframes fadeIn { to { opacity: 1; } }
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #FFFFFF;
+      color: var(--apple-dark-gray);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .highlight-text { color: var(--title-highlight-color); }
-        
-        .section-header { padding-top: 5rem; padding-bottom: 3rem; }
-        .main-content-area { padding-bottom: 6rem; }
+    /* Background gradient shapes */
+    .bg-shapes { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+    .shape { position: absolute; opacity: 0.08; filter: blur(150px); border-radius: 50%; }
+    .shape-1 { width: 700px; height: 700px; top: -200px; left: -200px; background: #cce5ff; }
+    .shape-2 { width: 600px; height: 600px; bottom: -150px; right: -150px; background: #d8cff0; }
+    .shape-3 { width: 450px; height: 450px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #ffe8ef; }
 
-        /* Minimalist Timeline */
-        .timeline-container { position: relative; margin: 0 auto; }
-        .timeline-item { display: flex; position: relative; margin-bottom: 4rem; }
-        .timeline-item:last-child { margin-bottom: 0; }
+    /* Navigation */
+    .main-nav {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(18px) saturate(180%);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+      color: var(--apple-medium-gray);
+      transition: color 0.2s ease-out;
+      padding: 0.25rem 0.1rem;
+    }
+    .nav-link:hover { color: var(--apple-blue); }
+    .nav-link.active { color: var(--apple-blue); font-weight: 600; }
 
-        .timeline-left { width: 50%; padding-right: 30px; text-align: right; }
-        .timeline-right { width: 50%; padding-left: 30px; }
-        
-        .timeline-line {
-            position: absolute; width: 2px; background-color: var(--apple-border-gray);
-            top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%);
-        }
-        .timeline-dot {
-            position: absolute; width: 14px; height: 14px; background-color: var(--apple-blue);
-            border-radius: 50%; left: 50%; top: 5px; /* Adjust top to align with text */
-            transform: translateX(-50%); z-index: 1;
-        }
-         .timeline-year-marker {
-            position: sticky; top: 100px; /* Adjust based on nav height */
-            left: 50%; transform: translateX(-50%);
-            padding: 0.25rem 0.75rem; background-color: #fff;
-            border: 1px solid var(--apple-border-gray);
-            border-radius: 980px; font-weight: 600;
-            color: var(--apple-dark-gray); z-index: 2;
-            text-align: center; margin-bottom: 2rem; display: inline-block;
-        }
-        /* This approach for year markers is simpler and might require manual placement or JS for dynamic stickiness relative to scroll. */
-        /* For pure CSS stickiness, place them outside the flex items and control their position relative to the container. */
-        /* A simpler way is to have a year header before a group of items. */
-        
-        .timeline-content-card {
-            background-color: #fff; padding: 1.75rem; border-radius: 16px;
-            border: 1px solid var(--apple-border-gray);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.03);
-            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
-        }
-        .timeline-content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-        }
-        .timeline-date-info { padding-top: 0.25rem; }
-        .timeline-date-year { font-size: 1rem; font-weight: 600; color: var(--apple-dark-gray); }
-        .timeline-date-month { font-size: 0.9rem; color: var(--apple-medium-gray); }
+    .page-transition { opacity: 0; animation: fadeIn 0.7s ease 0.1s forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
 
-        .timeline-title { font-weight: 600; font-size: 1.25rem; margin-bottom: 0.25rem; color: var(--apple-dark-gray); }
-        .timeline-company { color: var(--apple-medium-gray); font-weight: 500; margin-bottom: 0.75rem; }
-        .timeline-description { font-size: 0.95rem; color: var(--apple-dark-gray); line-height: 1.55; }
-        .timeline-period-badge {
-            display: inline-block; padding: 3px 10px; border-radius: 980px; font-size: 0.8rem;
-            font-weight: 500; margin-top: 1rem; background-color: var(--apple-light-gray);
-            color: var(--apple-medium-gray); border: 1px solid var(--apple-border-gray);
-        }
+    .highlight-text { color: var(--title-highlight-color); }
 
-        /* Alternating sides */
-        .timeline-item:nth-child(odd) .timeline-left { order: 1; }
-        .timeline-item:nth-child(odd) .timeline-right { order: 2; text-align: left; }
-        .timeline-item:nth-child(even) .timeline-left { order: 2; text-align: left; padding-left: 30px; padding-right: 0; }
-        .timeline-item:nth-child(even) .timeline-right { order: 1; text-align: right; padding-right: 30px; padding-left: 0; }
+    /* Section headers */
+    .section-header { padding-top: 5rem; padding-bottom: 3rem; }
+    .main-content-area { padding-bottom: 6rem; }
 
-        .main-footer {
-            margin-top: auto; padding: 2.5rem 1.5rem; text-align: center;
-            font-size: 0.875rem; color: var(--apple-medium-gray); border-top: 1px solid var(--apple-border-gray);
-        }
+    /* Timeline */
+    .timeline-container { position: relative; margin: 0 auto; }
+    .timeline-line {
+      position: absolute; width: 2px; background-color: var(--apple-border-gray);
+      top: 10px; bottom: 10px; left: 50%; transform: translateX(-50%);
+    }
+    .timeline-dot {
+      position: absolute; width: 14px; height: 14px; background-color: var(--apple-blue);
+      border-radius: 50%; left: 50%; top: 5px;
+      transform: translateX(-50%); z-index: 1;
+    }
 
-        @media (max-width: 768px) {
-            .timeline-left, .timeline-right { width: 100%; padding-left: 30px; padding-right: 0; text-align: left; }
-            .timeline-item:nth-child(odd) .timeline-left, .timeline-item:nth-child(even) .timeline-left { order: 2; padding-left: 30px; }
-            .timeline-item:nth-child(odd) .timeline-right, .timeline-item:nth-child(even) .timeline-right { order: 1; padding-left: 0px; padding-right: 0; margin-bottom: 1rem; }
-            .timeline-date-info { text-align: left; }
-            .timeline-line { left: 10px; } /* Shift line to the left */
-            .timeline-dot { left: 10px; }   /* Shift dot to the left */
-            .timeline-item { margin-bottom: 2.5rem; }
-            .section-header { padding-top: 4rem; padding-bottom: 2rem; }
-        }
+    .timeline-item {
+      display: flex;
+      position: relative;
+      margin-bottom: 4rem;
+    }
+    .timeline-left, .timeline-right {
+      width: 50%;
+      padding: 0 30px;
+    }
+    .timeline-left { text-align: right; }
+    .timeline-right { text-align: left; }
 
-    </style>
+    .timeline-content-card {
+      background-color: #fff;
+      padding: 1.75rem;
+      border-radius: 16px;
+      border: 1px solid var(--apple-border-gray);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .timeline-content-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .timeline-title { font-weight: 600; font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .timeline-company { color: var(--apple-medium-gray); font-weight: 500; margin-bottom: 0.75rem; }
+    .timeline-description { font-size: 0.95rem; color: var(--apple-dark-gray); line-height: 1.55; }
+    .timeline-period-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 980px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-top: 1rem;
+      background-color: var(--apple-light-gray);
+      color: var(--apple-medium-gray);
+      border: 1px solid var(--apple-border-gray);
+    }
+
+    /* Alternating layout */
+    .timeline-item:nth-child(odd) .timeline-left { order: 1; }
+    .timeline-item:nth-child(odd) .timeline-right { order: 2; }
+    .timeline-item:nth-child(even) .timeline-left { order: 2; text-align: left; }
+    .timeline-item:nth-child(even) .timeline-right { order: 1; text-align: right; }
+
+    /* Footer */
+    .main-footer {
+      margin-top: auto;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--apple-medium-gray);
+      border-top: 1px solid var(--apple-border-gray);
+    }
+
+    /* ----------- RESPONSIVENESS ----------- */
+    @media (max-width: 1024px) {
+      .section-header { text-align: center; }
+      .timeline-left, .timeline-right { padding: 0 20px; }
+    }
+
+    @media (max-width: 768px) {
+      .timeline-container { padding-left: 1.25rem; }
+      .timeline-item {
+        flex-direction: column;
+        margin-bottom: 2.5rem;
+        padding-left: 1.75rem;
+      }
+      .timeline-left, .timeline-right {
+        width: 100%;
+        text-align: left;
+        padding: 0;
+      }
+      .timeline-line {
+        left: 8px;
+        transform: none;
+      }
+      .timeline-dot {
+        left: 8px;
+        transform: none;
+      }
+      .timeline-content-card {
+        margin-top: 0.75rem;
+        padding: 1.25rem;
+      }
+      .timeline-title { font-size: 1.1rem; }
+      .timeline-description { font-size: 0.9rem; }
+      .section-header { padding-top: 4rem; padding-bottom: 2rem; }
+      .nav-link { font-size: 0.9rem; }
+      .nav-link:not(:last-child) { margin-right: 0.75rem; }
+      .text-4xl { font-size: 1.9rem; }
+      .text-lg { font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .timeline-content-card { padding: 1rem; }
+      .timeline-title { font-size: 1rem; }
+      .timeline-description { font-size: 0.85rem; }
+      .timeline-period-badge { font-size: 0.75rem; }
+      .text-4xl { font-size: 1.6rem; }
+      .main-nav { padding: 0.75rem 1rem; }
+    }
+  </style>
 </head>
 
 <body class="page-transition">
-    <div class="bg-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
+  <div class="bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <nav class="sticky top-0 main-nav px-6 py-4 z-50">
+    <div class="container mx-auto max-w-6xl flex flex-wrap justify-between items-center">
+      <a href="./index.html" class="text-xl font-semibold tracking-tight hover:opacity-75 transition-opacity">
+        Syem<span class="font-light">Aziz</span>
+      </a>
+      <div class="flex flex-wrap space-x-5 mt-2 md:mt-0 md:space-x-7">
+        <a href="./index.html" class="nav-link text-sm md:text-base">Home</a>
+        <a href="./experience.html" class="nav-link active text-sm md:text-base">Experience</a>
+        <a href="./project.html" class="nav-link text-sm md:text-base">Projects</a>
+        <a href="./contact.html" class="nav-link text-sm md:text-base">Contact</a>
+      </div>
     </div>
+  </nav>
 
-    <nav class="sticky top-0 main-nav px-6 py-4 z-50">
-        <div class="container mx-auto max-w-6xl flex justify-between items-center">
-            <a href="./index.html" class="text-xl font-semibold tracking-tight hover:opacity-75 transition-opacity">
-                Syem<span class="font-light">Aziz</span>
-            </a>
-            <div class="flex space-x-5 md:space-x-7">
-                <a href="./index.html" class="nav-link text-sm md:text-base">Home</a>
-                <a href="./experience.html" class="nav-link active text-sm md:text-base">Experience</a>
-                <a href="./project.html" class="nav-link text-sm md:text-base">Projects</a>
-                <a href="./contact.html" class="nav-link text-sm md:text-base">Contact</a>
-            </div>
+  <header class="container mx-auto max-w-4xl px-6 section-header text-center md:text-left">
+    <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-3">
+      My <span class="highlight-text">Experience</span>
+    </h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto md:mx-0">
+      A timeline of my professional journey and key roles.
+    </p>
+  </header>
+
+  <main class="container mx-auto max-w-4xl px-6 main-content-area">
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+
+      <div class="text-2xl font-semibold text-gray-700 mb-6 mt-4">2024</div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-date-info">
+            <div class="timeline-date-year">August 2024</div>
+            <div class="timeline-date-month">Present</div>
+          </div>
         </div>
-    </nav>
-
-    <header class="container mx-auto max-w-4xl px-6 section-header text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-3">
-            My <span class="highlight-text">Experience</span>
-        </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto md:mx-0">
-            A timeline of my professional journey and key roles.
-        </p>
-    </header>
-
-    <main class="container mx-auto max-w-4xl px-6 main-content-area">
-        <div class="timeline-container">
-            <div class="timeline-line"></div>
-
-            <!-- Year 2024 -->
-            <div class="text-2xl font-semibold text-gray-700 mb-6 mt-4 pl-1 md:pl-0">2024</div>
-
-            <!-- Experience 1 -->
-            <div class="timeline-item">
-                <div class="timeline-left"> <!-- Date info -->
-                    <div class="timeline-date-info">
-                        <div class="timeline-date-year">August 2024</div>
-                        <div class="timeline-date-month">Present</div>
-                    </div>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right"> <!-- Card -->
-                    <div class="timeline-content-card">
-                        <h3 class="timeline-title">Lecturer</h3>
-                        <p class="timeline-company">
-                              <a href="https://www.bubt.edu.bd/" target="_blank" class="text-current font-medium no-underline  transition duration-300 ease-in-out hover:text-blue-600">
-
-                            
-                            Bangladesh University of Business & Technology
-                        </a>
-                        </p>
-
-                        <p class="timeline-description">
-                            Teaching AI and Algorithms. Employing Outcome-Based Education (OBE) methodology.
-                        </p>
-                        <span class="timeline-period-badge">Full-time</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Experience 2 -->
-            <div class="timeline-item">
-                <div class="timeline-left"> <!-- Card -->
-                     <div class="timeline-content-card">
-                        <h3 class="timeline-title">Operations Intern</h3>
-                        <p class="timeline-company">
-                         <a href="https://www.shopup.org/" target="_blank" class="text-current font-medium no-underline  transition duration-300 ease-in-out hover:text-yellow-300">
-
-                            ShopUp
-                            </a>
-                        
-                        </p>
-                        <p class="timeline-description">
-                            Optimized workflows, data analysis with SQL/Python, Advanced Excel, and Power BI for reporting.
-                        </p>
-                        <span class="timeline-period-badge">Internship</span>
-                    </div>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right"> <!-- Date info -->
-                    <div class="timeline-date-info">
-                        <div class="timeline-date-year">June 2024</div>
-                        <div class="timeline-date-month">August 2024</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Year 2023 -->
-             <div class="text-2xl font-semibold text-gray-700 mb-6 mt-10 pl-1 md:pl-0">2023</div>
-
-            <!-- Experience 3 -->
-            <div class="timeline-item">
-                <div class="timeline-left"> <!-- Date info -->
-                    <div class="timeline-date-info">
-                         <div class="timeline-date-year">July 2023</div>
-                         <div class="timeline-date-month">September 2023</div>
-                    </div>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right"> <!-- Card -->
-                    <div class="timeline-content-card">
-                        <h3 class="timeline-title">Machine Learning Intern</h3>
-                                                      
-                        <p class="timeline-company">
-                            <a href="https://grameen.technology/" target="_blank" class="text-current font-medium no-underline  transition duration-300 ease-in-out hover:text-blue-600">
-Grameen Communications
-                        </a>
-                        </p>
-                        <p class="timeline-description">
-                            Developed a chatbot for GBanker and a credit score prediction model.
-                        </p>
-                        <span class="timeline-period-badge">Internship</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Experience 4 -->
-            <div class="timeline-item">
-                 <div class="timeline-left"> <!-- Card -->
-                    <div class="timeline-content-card">
-                        <h3 class="timeline-title">Web Developer</h3>
-                                                                       
-
-                        <p class="timeline-company">
-                            
-                                   <a href="https://www.treepp.org/" target="_blank" class="text-current font-medium no-underline transition duration-300 ease-in-out hover:text-green-500">
-                            Tree Plus Plus</a>
-                    </p>
-                        <p class="timeline-description">
-                            Built a website for a carbon offsetting platform promoting environmental sustainability.
-                        </p>
-                        <span class="timeline-period-badge">Part-time</span>
-                    </div>
-                </div>
-                <div class="timeline-dot"></div>
-                <div class="timeline-right"> <!-- Date info -->
-                     <div class="timeline-date-info">
-                        <div class="timeline-date-year">June 2023</div>
-                        <div class="timeline-date-month">Present</div>
-                    </div>
-                </div>
-            </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-content-card">
+            <h3 class="timeline-title">Lecturer</h3>
+            <p class="timeline-company">
+              <a href="https://www.bubt.edu.bd/" target="_blank" class="hover:text-blue-600">Bangladesh University of Business & Technology</a>
+            </p>
+            <p class="timeline-description">Teaching AI and Algorithms using Outcome-Based Education (OBE).</p>
+            <span class="timeline-period-badge">Full-time</span>
+          </div>
         </div>
-    </main>
+      </div>
 
-    <footer class="main-footer">
-        <p>© <span id="currentYear"></span> Syem Aziz. All rights reserved.</p>
-    </footer>
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-content-card">
+            <h3 class="timeline-title">Operations Intern</h3>
+            <p class="timeline-company">
+              <a href="https://www.shopup.org/" target="_blank" class="hover:text-yellow-400">ShopUp</a>
+            </p>
+            <p class="timeline-description">Optimized workflows, performed SQL/Python-based data analysis, and created Power BI dashboards.</p>
+            <span class="timeline-period-badge">Internship</span>
+          </div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-date-info">
+            <div class="timeline-date-year">June 2024</div>
+            <div class="timeline-date-month">August 2024</div>
+          </div>
+        </div>
+      </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const yearSpan = document.getElementById('currentYear');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
-            // Simple fade in for timeline cards for effect
-            const cards = document.querySelectorAll('.timeline-content-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 100 + index * 100);
-            });
-        });
-    </script>
+      <div class="text-2xl font-semibold text-gray-700 mb-6 mt-10">2023</div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-date-info">
+            <div class="timeline-date-year">July 2023</div>
+            <div class="timeline-date-month">September 2023</div>
+          </div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-content-card">
+            <h3 class="timeline-title">Machine Learning Intern</h3>
+            <p class="timeline-company">
+              <a href="https://grameen.technology/" target="_blank" class="hover:text-blue-600">Grameen Communications</a>
+            </p>
+            <p class="timeline-description">Developed a chatbot for GBanker and a credit scoring model.</p>
+            <span class="timeline-period-badge">Internship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-content-card">
+            <h3 class="timeline-title">Web Developer</h3>
+            <p class="timeline-company">
+              <a href="https://www.treepp.org/" target="_blank" class="hover:text-green-500">Tree Plus Plus</a>
+            </p>
+            <p class="timeline-description">Built a carbon offsetting platform to promote environmental sustainability.</p>
+            <span class="timeline-period-badge">Part-time</span>
+          </div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-right">
+          <div class="timeline-date-info">
+            <div class="timeline-date-year">June 2023</div>
+            <div class="timeline-date-month">Present</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <p>© <span id="currentYear"></span> Syem Aziz. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
